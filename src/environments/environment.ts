@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  petsAPI: "https://localhost:44307",
+  petsAPIazure: "https://petsapi20181004121208.azurewebsites.net"
 };
 
 /*
