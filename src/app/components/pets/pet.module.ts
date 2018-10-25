@@ -11,6 +11,7 @@ import { CreateComponent } from './create/create.component';
     CreateComponent
   ],
   exports: [
+    CommonModule,
     IndexComponent,
     CreateComponent
   ]
