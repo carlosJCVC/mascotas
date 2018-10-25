@@ -1,51 +1,72 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="search-div">
+    <button mat-raised-button (click)="onCreate()">
+        <mat-icon>add</mat-icon>Create
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
     <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
   </ng-container>
 
   <ng-container matColumnDef="raza">
-    <th mat-header-cell *matHeaderCellDef> breed </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> breed </th>
     <td mat-cell *matCellDef="let element"> {{element.raza}} </td>
   </ng-container>
 
   <ng-container matColumnDef="edad">
-    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
     <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
   </ng-container>
 
   <ng-container matColumnDef="procedencia">
-    <th mat-header-cell *matHeaderCellDef> Origin </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Origin </th>
     <td mat-cell *matCellDef="let element"> {{element.procedencia}} </td>
   </ng-container>
 
   <ng-container matColumnDef="sexo">
-    <th mat-header-cell *matHeaderCellDef> Sex </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sex </th>
     <td mat-cell *matCellDef="let element"> {{element.sexo}} </td>
   </ng-container>
 
   <ng-container matColumnDef="especie">
-    <th mat-header-cell *matHeaderCellDef> Species </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Species </th>
     <td mat-cell *matCellDef="let element"> {{element.especie}} </td>
   </ng-container>
 
   <ng-container matColumnDef="estado">
-    <th mat-header-cell *matHeaderCellDef> State </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
     <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
   </ng-container>
 
   <ng-container matColumnDef="created_at">
-    <th mat-header-cell *matHeaderCellDef> Registration </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Registration </th>
     <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="onDelete(row.$key)"><mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

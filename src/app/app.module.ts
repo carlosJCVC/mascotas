@@ -56,6 +56,7 @@ import { CreateComponent } from "./components/pets/create/create.component";
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
+    CreateComponent,
     InputComponent,
     ButtonComponent,
     SelectComponent,

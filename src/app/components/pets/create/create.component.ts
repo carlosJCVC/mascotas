@@ -4,6 +4,8 @@ import { FieldConfig } from "../../../field.interface";
 import { DynamicFormComponent } from "../../dynamic-form/dynamic-form.component";
 import { PetService } from '../../../services/pet.service';
 import { Router } from "@angular/router";
+import { NotificationService } from '../../../services/notification.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: "app-create-pet",
@@ -13,16 +15,21 @@ import { Router } from "@angular/router";
 
 export class CreateComponent {
   
-  constructor(private petServ: PetService, private router: Router){};
+  constructor(private petServ: PetService, 
+      private router: Router, 
+      private notificationService: NotificationService,
+      public dialogRef: MatDialogRef<CreateComponent>,
+  ){};
 
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
-  
+
   regConfig: FieldConfig[] = [
     {
       label: "Nombre",
       name: "nombre",
       inputType: "text",
       type: "input",
+      value: "getValor()",
       validations: [
         {
           name: "required",
@@ -142,12 +149,18 @@ export class CreateComponent {
     }
   ];
 
+  getValor(){
+      return "HOla 2";
+  }
+
   submit(value: any) {
     //console.log((this.form.form.value);
     this.petServ.add(this.form.form.value).subscribe(
       data => {
         var url = window.location.protocol+"//"+window.location.host+"/lista_mascotas";
         window.location.replace(url);
+        this.notificationService.success(':: exito sssss');
+        this.onClose();
         //location.reload();
       },
       error => {
@@ -157,5 +170,9 @@ export class CreateComponent {
       }
     );
     //location.reload();
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 }

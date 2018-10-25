@@ -1,6 +1,9 @@
 import { Component, ViewChild,  OnInit } from '@angular/core';
 import { PetService } from '../../../services/pet.service';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatDialogConfig, MatDialog, MatSort, MatPaginator, MatTableDataSource, MatIconModule } from '@angular/material'
+import { CreateComponent } from '../create/create.component';
+import { NotificationService } from '../../../services/notification.service';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 export interface PeriodicElement {
   nombre: string;
@@ -23,22 +26,67 @@ export class IndexComponent implements OnInit {
   
 
   service: PetService;
-  displayedColumns: string[] = ['id', 'nombre', 'raza', 'edad', 'procedencia', 'sexo', 'especie', 'estado', 'created_at'];
+  displayedColumns: string[] = ['id', 'nombre', 'raza', 'edad', 'procedencia', 'sexo', 'especie', 'estado', 'created_at', 'actions'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  //dataSource: MatTableDataSource<any>;
   //public dataSource:any;
 
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild( MatPaginator ) paginator: MatPaginator;
-  
-  constructor(public serv: PetService) { }
+  searchKey: string;
+
+  constructor(public serv: PetService, private dialog: MatDialog, private notificationService: NotificationService) { }
 
   ngOnInit() {
-    this.serv.getAll().subscribe(data => {
-      this.dataSource.paginator = this.paginator;
-      //this.dataSource = data;
-      console.log(data);
+    this.serv.getAll().subscribe(
+        data => {
+          //this.dataSource = new MatTableDataSource(array);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.filterPredicate = (data, filter) => {
+            return this.displayedColumns.some(ele => {
+              return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
+            });
+          };
+        //this.dataSource = data;
+          console.log(data);
   	});
   }
 
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
+  }
+
+  applyFilter() {
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  onCreate() {
+    //this.service.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    //dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(CreateComponent, dialogConfig);
+  }
+
+  onEdit(row){
+    console.log(row);
+    //this.service.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    //dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(CreateComponent,dialogConfig);
+  }
+
+  onDelete($key){
+    if(confirm('Are you sure to delete this record ?')){
+      this.serv.delete($key);
+      this.notificationService.warn('! Deleted successfully');
+    }
+  }
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -51,15 +99,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {raza: "raza", nombre: 'Nitrogen', edad: "5", procedencia: 'N', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
   {raza: "raza", nombre: 'Oxygen', edad: "5", procedencia: 'O', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
   {raza: "raza", nombre: 'Fluorine', edad: "5", procedencia: 'F', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Neon', edad: "5", procedencia: 'Ne', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Sodium', edad: "5", procedencia: 'Na', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Magnesium', edad: "5", procedencia: 'Mg', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Aluminum', edad: "5", procedencia: 'Al', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Silicon', edad: "5", procedencia: 'Si', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Phosphorus', edad: "5", procedencia: 'P', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Sulfur', edad: "5", procedencia: 'S', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Chlorine', edad: "5", procedencia: 'Cl', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Argon', edad: "5", procedencia: 'Ar', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Potassium', edad: "5", procedencia: 'K', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Calcium', edad: "5", procedencia: 'Ca', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
 ];
