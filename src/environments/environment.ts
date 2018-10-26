@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  //petsAPI: "https://localhost:44307",
+  petsAPI: "https://localhost:44307",
   petsAPIazure: "https://petsapi20181004121208.azurewebsites.net"
 };
 

@@ -5,16 +5,16 @@ import { CreateComponent } from '../create/create.component';
 import { NotificationService } from '../../../services/notification.service';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-export interface PeriodicElement {
-  nombre: string;
-  raza: string;
-  edad: string;
-  procedencia: string;
-  sexo: string;
-  especie: string;
-  estado: string;
-  created_at: string;
-}
+// export interface PeriodicElement {
+//   nombre: string;
+//   raza: string;
+//   edad: string;
+//   procedencia: string;
+//   sexo: string;
+//   especie: string;
+//   estado: string;
+//   created_at: string;
+// }
 
 @Component({
   selector: 'app-index',
@@ -27,8 +27,8 @@ export class IndexComponent implements OnInit {
 
   service: PetService;
   displayedColumns: string[] = ['id', 'nombre', 'raza', 'edad', 'procedencia', 'sexo', 'especie', 'estado', 'created_at', 'actions'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  //dataSource: MatTableDataSource<any>;
+  //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource: MatTableDataSource<any>;
   //public dataSource:any;
 
   @ViewChild(MatSort) sort: MatSort;
@@ -40,16 +40,35 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.serv.getAll().subscribe(
         data => {
-          //this.dataSource = new MatTableDataSource(array);
+          let array = Object.keys(data).map(function(key, index) {
+             return {
+                id: data[key].id,
+                nombre: data[key].nombre,
+                raza: data[key].raza,
+                edad: data[key].edad,
+                procedencia: data[key].procedencia,
+                sexo: data[key].sexo,
+                especie: data[key].especie,
+                estado: data[key].estado,
+                created_at: data[key].created_at,
+              };
+          });
+          // let array = data.map(item => {
+          //     return {
+          //       $key: item.id,
+          //     };
+
+          // });
+          this.dataSource = new MatTableDataSource(array);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.dataSource.filterPredicate = (data, filter) => {
             return this.displayedColumns.some(ele => {
-              return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
+            console.log(ele);
+              return ele != 'actions' && ele != 'id' && ele != 'edad' && ele != 'created_at' && data[ele].toLowerCase().indexOf(filter) != -1;
             });
           };
         //this.dataSource = data;
-          console.log(data);
   	});
   }
 
@@ -89,14 +108,14 @@ export class IndexComponent implements OnInit {
   }
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {raza: "raza", nombre: 'Hydrogen', edad: "5", procedencia: 'SIN prec', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Helium', edad: "5", procedencia: 'He', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Lithium', edad: "5", procedencia: 'Li', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Beryllium', edad: "5", procedencia: 'Be', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Boron', edad: "5", procedencia: 'B', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Carbon', edad: "5", procedencia: 'C', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Nitrogen', edad: "5", procedencia: 'N', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Oxygen', edad: "5", procedencia: 'O', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-  {raza: "raza", nombre: 'Fluorine', edad: "5", procedencia: 'F', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
-];
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   {raza: "raza", nombre: 'Hydrogen', edad: "5", procedencia: 'SIN prec', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Helium', edad: "5", procedencia: 'He', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Lithium', edad: "5", procedencia: 'Li', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Beryllium', edad: "5", procedencia: 'Be', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Boron', edad: "5", procedencia: 'B', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Carbon', edad: "5", procedencia: 'C', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Nitrogen', edad: "5", procedencia: 'N', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Oxygen', edad: "5", procedencia: 'O', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+//   {raza: "raza", nombre: 'Fluorine', edad: "5", procedencia: 'F', sexo: 'Macho', especie: 'Especie', estado: 'ACTIVO', created_at: 'H'},
+// ];
