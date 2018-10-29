@@ -1,7 +1,8 @@
-<mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>{{mascota.raza}}</mat-card-title>
-    </mat-card-header>
+
+<mat-card>
+        <mat-card-title>
+          <span> {{mascota.raza}}</span>
+        </mat-card-title>
     <mat-card-content>
         <img matListAvatar src="{{mascota.imagen}}" [ngStyle]="{
           'background-size':'cover'
@@ -9,9 +10,8 @@
         <p>
           {{mascota.descripcion}}
         </p>
-      </mat-card-content>
+    </mat-card-content>
     <mat-card-actions>
             <button mat-stroked-button color="primary" >Adoptar</button>
     </mat-card-actions>
 </mat-card>
-<br>
