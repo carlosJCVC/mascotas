@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>PETS</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">face</mat-icon>
+    <span>Lucas Torrez</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/Lista">
+            <mat-icon>lista</mat-icon>
+            <span>Lista de Mascotas</span>
+        </button>
+        <button mat-menu-item routerLink="/Registrar">
+            <mat-icon>add</mat-icon>
+            <span>Registrar Mascota</span>
+      </button>
+      <button mat-menu-item>
+          <mat-icon>notifications</mat-icon>
+          <span>Solicitudes de Adopcion</span>
+      </button>
+      <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Desactivar Notificaciones</span>
+      </button>
+        <button mat-menu-item>
+          <mat-icon>input</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
+
+  </mat-toolbar-row>
+</mat-toolbar>
