@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { environment } from '../environments/environment';
-import { RouterModule, Routes } from '@angular/router';
 import { LayoutModule } from '@angular/cdk/layout';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-//import { FieldErrorDisplayComponent } from './field-error-display/field-error-display.component';
 import { MaterialModule } from "./material.module";
 
 import { InputComponent } from "./components/fields/input/input.component";
@@ -24,42 +23,50 @@ import { DynamicFieldDirective } from "./components/dynamic-field/dynamic-field.
 import { DynamicFormComponent } from "./components/dynamic-form/dynamic-form.component";
 
 //Mascotas
-//import { PetModule } from "./components/pets/pet.module";
-import { IndexComponent } from './components/pets/index/index.component';
-import { CreateComponent } from "./components/pets/create/create.component";
+// import { IndexComponent } from './components/pets/index/index.component';
+// import { CreateComponent } from "./components/pets/create/create.component";
+// import { PetsComponent } from "./components/pets/pets.component";
+// import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
+import { CoreModule } from './components/admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-    //FieldErrorDisplayComponent,
-    InputComponent,
-    ButtonComponent,
-    SelectComponent,
-    DynamicFieldDirective,
-    DynamicFormComponent,
-    CreateComponent,
-    IndexComponent,
+    // NavBarComponent,
+    // InputComponent,
+    // ButtonComponent,
+    // SelectComponent,
+    // DynamicFieldDirective,
+    // DynamicFormComponent,
+    // CreateComponent,
+    // IndexComponent,
+    // MatConfirmDialogComponent,
+    // PetsComponent,
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
-    BrowserModule,
-    LayoutModule,
+    // MaterialModule,
+    // BrowserModule,
+    //LayoutModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    //FormsModule,
+    //ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
+    //HttpClientModule,
+    //CommonModule,
+    CoreModule,
   ],
-  providers: [],
+  providers: [
+      // PetService,
+      // DatePipe
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
-    CreateComponent,
-    InputComponent,
-    ButtonComponent,
-    SelectComponent,
+    // CreateComponent,
+    // InputComponent,
+    // ButtonComponent,
+    // SelectComponent,
+    // MatConfirmDialogComponent
   ]
 })
 

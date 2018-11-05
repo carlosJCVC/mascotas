@@ -3,10 +3,10 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import * as _ from 'lodash';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 
 export class PetService {
@@ -14,8 +14,8 @@ export class PetService {
     url: string;
 
     constructor(public http: HttpClient, private datePipe: DatePipe) {
-      //this.url = environment.petsAPI + '/api/mascotas';
-      this.url = environment.petsAPIazure + '/api/mascotas';
+        //this.url = environment.petsAPI + '/api/mascotas';
+        this.url = environment.petsAPIazure + '/api/mascotas';
     }
 
     form: FormGroup = new FormGroup({
@@ -45,23 +45,23 @@ export class PetService {
     }
 
     add(data: any) {
-      return this.http.post(this.url, data);
+        return this.http.post(this.url, data);
     }
 
     getAll() {
-      return this.http.get(this.url);
+        return this.http.get(this.url);
     }
 
     getOne(id) {
-      return this.http.get(this.url + '/' + id);
+        return this.http.get(this.url + '/' + id);
     }
 
     edit(id, data: any) {
-      return this.http.put(this.url + '/' + id, data);
+        return this.http.put(this.url + '/' + id, data);
     }
 
     delete(id) {
-      return this.http.get(this.url + '/' + id);
+        return this.http.get(this.url + '/' + id);
     }
 
     populateForm(pet) {
