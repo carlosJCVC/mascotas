@@ -19,7 +19,7 @@
             </mat-drawer>
             <mat-drawer-content style="overflow: hidden;">
 
-                <admin-toolbar [sidenav]="sidenav" [drawer]="drawer" [sidebar]="sidenav2" [matDrawerShow]="matDrawerShow" style="z-index: 500"></admin-toolbar>
+                <admin-toolbar [sidenav]="sidenav" [drawer]="drawer" [matDrawerShow]="matDrawerShow" style="z-index: 500"></admin-toolbar>
                 <perfect-scrollbar  style="height: calc(100% - 33px);" >
                     <router-outlet></router-outlet>
                 </perfect-scrollbar>
@@ -27,9 +27,4 @@
             </mat-drawer-content>
         </mat-drawer-container>
     </mat-sidenav-content>
-
-    <mat-sidenav #sidenav2 position="end" mode="over">
-        <admin-sidebar></admin-sidebar>
-    </mat-sidenav>
-
 </mat-sidenav-container>
