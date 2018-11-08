@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import {AuthenticationService} from '../../services/authentication/authentication.service';
 
 
 @Component({
@@ -12,9 +13,7 @@ import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 export class NavBarComponent implements OnInit {
 
   sidenavOpened: boolean;
-  email: string;
-  password: string;
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public authenticationService: AuthenticationService) {
     this.sidenavOpened = false;
    }
 
@@ -25,6 +24,9 @@ export class NavBarComponent implements OnInit {
     this.sidenavOpened = !this.sidenavOpened;
   }
 
+  sidenavCanBeOpen() {
+    return this.sidenavOpened && this.authenticationService.isLogged();
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '300px',
@@ -32,9 +34,9 @@ export class NavBarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.email = result.email;
-      this.password = result.password;
-      console.log(this.password);
+      this.authenticationService.post({userNameEmail: result.email, password: result.password }).subscribe((response: any) => {
+        sessionStorage.setItem('token', response.token);
+      });
     });
   }
 }

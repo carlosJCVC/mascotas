@@ -9,7 +9,7 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button mat-icon-button (click)="toggleSidenav()" *ngIf="!sidenavOpened">
+      <button mat-icon-button (click)="toggleSidenav()" *ngIf="sidenavCanBeOpen()">
         <mat-icon>menu</mat-icon>
       </button>
       <span class="center">Pets</span>
