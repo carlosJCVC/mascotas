@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,7 @@ export class PetService {
   url: string;
 
   constructor(public http: HttpClient) {
-    //this.url = environment.petsAPI + '/api/mascotas';
-  	this.url = environment.petsAPI + '/api/mascotas';
+    this.url = environment.petsAPI + '/api/mascotas';
   }
 
   add(data: any) {

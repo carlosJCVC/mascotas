@@ -1,25 +1,13 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output
-} from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FieldConfig } from '../../field.interface';
 
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl
-} from "@angular/forms";
-
-import { FieldConfig, Validator } from "../../field.interface";
 
 @Component({
-  selector: "dynamic-form",
-  exportAs: "dynamicForm",
-  templateUrl: "./dynamic-form.component.html",
+  // tslint:disable-next-line:component-selector
+  selector: 'dynamic-form',
+  exportAs: 'dynamicForm',
+  templateUrl: './dynamic-form.component.html',
   styles: []
 })
 
@@ -35,7 +23,7 @@ export class DynamicFormComponent implements OnInit {
   get value() {
     return this.form.value;
   }
-  
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -56,10 +44,9 @@ export class DynamicFormComponent implements OnInit {
   createControl() {
     const group = this.fb.group({});
     this.fields.forEach(field => {
-      
-      if (field.type === "button") 
+      if (field.type === 'button') {
         return;
-      
+      }
       const control = this.fb.control(
         field.value,
         this.bindValidations(field.validations || [])
@@ -67,7 +54,6 @@ export class DynamicFormComponent implements OnInit {
 
       group.addControl(field.name, control);
     });
-    
     return group;
   }
 
@@ -91,12 +77,14 @@ export class DynamicFormComponent implements OnInit {
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
+      let reader;
+      reader = new FileReader();
 
       reader.readAsDataURL(event.target.files[0]);
+      // tslint:disable-next-line:no-shadowed-variable
       reader.onload = (event) => {
         this.url = event.target.result;
-      }
+      };
     }
   }
 }

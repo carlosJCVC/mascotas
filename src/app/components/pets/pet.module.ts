@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
 
 @NgModule({
   imports: [
-  	CommonModule,
+    CommonModule,
     IndexComponent,
     CreateComponent
   ],
@@ -17,4 +17,4 @@ import { CreateComponent } from './create/create.component';
   ]
 })
 
-export class PetModule {}
+export class PetModule { }

@@ -6,3 +6,6 @@
   width: 200px;
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }
+.center {
+  flex: 1 1 auto;
+}

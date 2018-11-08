@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,10 +11,30 @@ import { Observable } from 'rxjs';
 
 export class NavBarComponent implements OnInit {
 
-  isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset)
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  sidenavOpened: boolean;
+  email: string;
+  password: string;
+  constructor(public dialog: MatDialog) {
+    this.sidenavOpened = false;
+   }
 
   ngOnInit() {
   }
 
+  toggleSidenav() {
+    this.sidenavOpened = !this.sidenavOpened;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '300px',
+      data: {email: '', password: ''}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.email = result.email;
+      this.password = result.password;
+      console.log(this.password);
+    });
+  }
 }

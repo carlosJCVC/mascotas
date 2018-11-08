@@ -1,24 +1,20 @@
-import { ComponentFactoryResolver, ComponentRef, Directive, Input, OnInit, ViewContainerRef } from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { FieldConfig } from "../../field.interface";
-import { InputComponent } from "../fields/input/input.component";
-import { ButtonComponent } from "../fields/button/button.component";
-import { SelectComponent } from "../fields/select/select.component";
-//import { DateComponent } from "../date/date.component";
-//import { RadiobuttonComponent } from "../radiobutton/radiobutton.component";
-//import { CheckboxComponent } from "../checkbox/checkbox.component";
+import { ComponentFactoryResolver, ComponentRef, Directive, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FieldConfig } from '../../field.interface';
+import { InputComponent } from '../fields/input/input.component';
+import { ButtonComponent } from '../fields/button/button.component';
+import { SelectComponent } from '../fields/select/select.component';
+
 
 const componentMapper = {
   input: InputComponent,
   button: ButtonComponent,
   select: SelectComponent,
-  //date: DateComponent,
-  //radiobutton: RadiobuttonComponent,
-  //checkbox: CheckboxComponent
 };
 
 @Directive({
-  selector: "[dynamicField]"
+  // tslint:disable-next-line:directive-selector
+  selector: '[dynamicField]'
 })
 
 export class DynamicFieldDirective implements OnInit {
@@ -30,7 +26,7 @@ export class DynamicFieldDirective implements OnInit {
     private resolver: ComponentFactoryResolver,
     private container: ViewContainerRef
   ) {}
-  
+
   ngOnInit() {
     const factory = this.resolver.resolveComponentFactory(
       componentMapper[this.field.type]

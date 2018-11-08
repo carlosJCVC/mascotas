@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { FieldConfig } from "../../../field.interface";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FieldConfig } from '../../../field.interface';
 
 @Component({
-  selector: "app-input",
-  templateUrl: "./input.component.html",
+  selector: 'app-input',
+  templateUrl: './input.component.html',
   styles: []
 })
 
@@ -13,6 +13,6 @@ export class InputComponent implements OnInit {
   group: FormGroup;
 
   constructor() {}
-  
+
   ngOnInit() {}
 }
