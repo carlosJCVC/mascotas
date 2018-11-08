@@ -14,8 +14,8 @@ export class PetService {
     url: string;
 
     constructor(public http: HttpClient, private datePipe: DatePipe) {
-        //this.url = environment.petsAPI + '/api/mascotas';
-        this.url = environment.petsAPIazure + '/api/mascotas';
+        this.url = environment.petsAPI + '/api/mascotas';
+        //this.url = environment.petsAPIazure + '/api/mascotas';
     }
 
     form: FormGroup = new FormGroup({

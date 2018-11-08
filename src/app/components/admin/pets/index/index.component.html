@@ -91,20 +91,28 @@
             <h1 class="mat-headline center-align" >Pet List</h1>
         </mat-toolbar>
         <div class="table-container">
+            <div class="search-div example-header" style="padding: 0 20px;">
+                <mat-form-field class="search-form-field" floatPlaceholder="never" style="color: black; width: 100%;">
+                    <input matInput #filter [(ngModel)]="searchKey" placeholder="Filter pets" autocomplete="off" (keyup)="applyFilter()">
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey" (click)="onSearchClear()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
 
-            <table  matSort (matSortChange)="sortData($event)">
+            <table id="tablePets" matSort (matSortChange)="sortData($event)">
                 <thead>
                     <tr>
                         <th mat-sort-header="{{th.key}}" scope="col" *ngFor="let th of helpers?.header">{{th.name}}</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr *ngFor="let row of rows let i=index" >
                         <td [attr.data-label]="th.name" *ngFor="let th of helpers?.header" >
                             <span *ngIf="th.key!='action'">
 
                                 {{row[th.key]}}
-
                                 <mat-chip  (click)="findDuplicates(row)"
                                            selected="true"
                                            color="warn"
@@ -115,9 +123,18 @@
                                                 && row['duplicate_applications']
                                                 && row['duplicate_applications'].length > 0"
                                 >
+
                                 {{row['duplicate_applications'].length }}
                                 </mat-chip>
+                            </span>
 
+                            <span *ngIf="th.key=='action'">
+                                <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Acciones</button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item>Ver</button>
+                                  <button mat-menu-item>Editar</button>
+                                  <button mat-menu-item>Eliminar</button>
+                                </mat-menu>
                             </span>
                         </td>
                     </tr>

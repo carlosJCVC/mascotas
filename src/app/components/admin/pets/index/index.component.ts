@@ -1,6 +1,6 @@
 import { Component, ViewChild,  OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { ResponsiveTableHelpers } from './helpers.data';
-// import { PetService } from '../../../../services/pet.service';
+import { PetService } from '../pet.service';
 import {
     MatDialogConfig,
     MatDialog,
@@ -21,18 +21,12 @@ import {
 
 export class IndexComponent implements OnInit {
 
-    constructor() { }
-
-
-    // displayedColumns: string[] = ['id', 'nombre', 'raza', 'edad', 'procedencia', 'sexo', 'especie', 'estado', 'created_at', 'actions'];
-    displayedColumns = ['userId', 'userName', 'progress', 'color'];
     rows: Array<any> = [];
     showResponsiveTableCode;
-
     //@ViewChild( MatSort ) sort: MatSort;
     @ViewChild( MatPaginator ) paginator: MatPaginator;
     pageLength = 0;
-    pageSize = 15;
+    pageSize = 5;
     helpers = ResponsiveTableHelpers;
     @Input() status;
     @Input() actionStatus;
@@ -45,32 +39,17 @@ export class IndexComponent implements OnInit {
 
     searchKey: string;
 
+    constructor(
+        public petServ: PetService
+    ) { }
+
     ngOnInit(){
         this.getRows();
-        console.log(this.getRows());
-        // this.data = ["test", "test2"];
-        // this.petServ.getAll().subscribe(
-        //     data => {
-        //         let array = Object.keys(data).map(function(key, index) {
-        //             return {
-        //                 id: data[key].id,
-        //                 nombre: data[key].nombre,
-        //                 raza: data[key].raza,
-        //                 edad: data[key].edad,
-        //                 procedencia: data[key].procedencia,
-        //                 sexo: data[key].sexo,
-        //                 especie: data[key].especie,
-        //                 estado: data[key].estado,
-        //                 created_at: data[key].created_at,
-        //             };
-        //         });
-        //
         //         this.listData = new MatTableDataSource(array);
         //         this.listData.sort = this.sort;
         //         this.listData.paginator = this.paginator;
         //         this.listData.filterPredicate = (data, filter) => {
         //             return this.displayedColumns.some(ele => {
-        //                 console.log(ele);
         //                 return ele != 'actions' && ele != 'id' && ele != 'edad' && ele != 'created_at' && data[ele].toLowerCase().indexOf(filter) != -1;
         //             });
         //         };
@@ -78,28 +57,81 @@ export class IndexComponent implements OnInit {
     }
 
     getRows() {
-        for (var i=0;i<this.pageSize;i++) {
-            this.rows = [...this.rows,this.helpers.rows[i]];
-        }
-        console.log(this.rows);
-        this.pageLength = this.helpers.rows.length;
+        this.petServ.getAll().subscribe(
+            data => {
+                let array = Object.keys(data).map(function(key, index) {
+                    return {
+                        id: data[key].id,
+                        nombre: data[key].nombre,
+                        raza: data[key].raza,
+                        edad: data[key].edad,
+                        procedencia: data[key].procedencia,
+                        sexo: data[key].sexo,
+                        especie: data[key].especie,
+                        estado: data[key].estado,
+                        created_at: data[key].created_at,
+                        };
+                });
+
+                this.rows = array;
+                this.pageLength = this.rows.length;
+            }
+        );
     }
 
     next(event) {
         this.rows = [];
-        for (var i= 1 * event.pageIndex * event.pageSize; i< event.pageSize+event.pageIndex*event.pageSize ;i++) {
-            this.rows = [...this.rows,this.helpers.rows[i]];
-        }
+        this.petServ.getAll().subscribe(
+            data => {
+                let array = Object.keys(data).map(function(key, index) {
+                    return {
+                        id: data[key].id,
+                        nombre: data[key].nombre,
+                        raza: data[key].raza,
+                        edad: data[key].edad,
+                        procedencia: data[key].procedencia,
+                        sexo: data[key].sexo,
+                        especie: data[key].especie,
+                        estado: data[key].estado,
+                        created_at: data[key].created_at,
+                        };
+                }); 
+
+                if (event.pageSize > array.length) {
+                    event.pageSize = array.length;
+                }
+
+                for (var i= 1 * event.pageIndex * event.pageSize; i< event.pageSize+event.pageIndex*event.pageSize ;i++) {
+                    this.rows = [...this.rows,array[i]];        
+                }
+            }
+        );
     }
 
-    // onSearchClear() {
-    //     this.searchKey = "";
-    //     this.applyFilter();
-    // }
-    //
-    // applyFilter() {
-    //     this.listData.filter = this.searchKey.trim().toLowerCase();
-    // }
+    onSearchClear() {
+        this.searchKey = "";
+        this.applyFilter();
+    }
+    
+    applyFilter() {
+        var filter, table, tr, td, i;
+        filter = this.searchKey.trim().toLowerCase();
+        table = document.getElementById("tablePets");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            console.log(td.spam);
+            if (td) {
+              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+        }
+        
+        //this.listData.filter = this.searchKey.trim().toLowerCase();
+    }
 
     // onCreate() {
     //     this.petServ.initializeFormGroup();

@@ -8,7 +8,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { PetService } from './services/pet.service';
+import { PetService } from './components/admin/pets/pet.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,7 +52,7 @@ import { CoreModule } from './components/admin/admin.module';
     //FormsModule,
     //ReactiveFormsModule,
     AppRoutingModule,
-    //HttpClientModule,
+    HttpClientModule,
     //CommonModule,
     CoreModule,
   ],

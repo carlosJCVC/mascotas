@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -27,6 +27,8 @@ import {
     MatGridListModule,
     MatSelectModule,
     MatOptionModule,
+    MatCardModule,
+    MatMenuModule
 } from '@angular/material';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -36,6 +38,7 @@ import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
 import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
+import { PetService } from './pet.service';
 
 export function highlightJsFactory(): any {
     hljs.registerLanguage('typescript', hljsTypescript);
@@ -70,18 +73,27 @@ export function highlightJsFactory(): any {
         MatSelectModule,
         MatOptionModule,
         HttpClientModule,
+        MatCardModule,
+        MatMenuModule,
         HighlightJsModule.forRoot({
             provide: HIGHLIGHT_JS,
             useFactory: highlightJsFactory
         }),
         PetsRouterModule
     ],
+    
     declarations: [
         IndexComponent,
         CreateComponent,
     ],
+    
     exports: [
-    ]
+    ],
+    
+    providers: [
+      PetService,
+      DatePipe
+  ],
 })
 
 export class PetsModule { }
