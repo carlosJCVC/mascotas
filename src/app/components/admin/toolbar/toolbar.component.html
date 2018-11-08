@@ -12,15 +12,5 @@
         <i class="material-icons">search</i>
     </button>
     <admin-search-bar [open]="searchOpen"></admin-search-bar>
-
-    <!--<cdk-fullscreen></cdk-fullscreen>-->
-
-    <!--<cdk-toolbar-notification [notifications]="toolbarHelpers?.notifications"></cdk-toolbar-notification>-->
-
     <admin-user-menu [currentUser]="toolbarHelpers?.currentUser"></admin-user-menu>
-
-    <button mat-icon-button (click)="sidebar.toggle();">
-        <i class="material-icons app-toolbar-menu">menu </i>
-    </button>
-
 </mat-toolbar>
