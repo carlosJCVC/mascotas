@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'admin-user-menu',
     templateUrl: './user-menu.component.html',
     styleUrls: ['./user-menu.component.scss']
 })
 export class UserMenuComponent implements OnInit {
-    isOpen: boolean = false;
+    isOpen: boolean;
 
-    //currentUser = null;
     Hari;
 
     @Input() currentUser = null;
@@ -25,7 +25,9 @@ export class UserMenuComponent implements OnInit {
     }
 
 
-    constructor(private elementRef: ElementRef) { }
+    constructor(private elementRef: ElementRef) {
+        this.isOpen = false;
+    }
 
 
     ngOnInit() {

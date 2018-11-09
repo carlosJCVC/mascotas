@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { menus } from './menu-element';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'admin-sidemenu',
     templateUrl: './sidemenu.component.html',
     styleUrls: ['./sidemenu.component.scss']
@@ -9,10 +10,12 @@ import { menus } from './menu-element';
 
 export class SidemenuComponent implements OnInit {
 
-    @Input() iconOnly:boolean = false;
+    @Input() iconOnly;
     public menus = menus;
 
-    constructor() { }
+    constructor() {
+        this.iconOnly = false;
+     }
 
     ngOnInit() {
     }

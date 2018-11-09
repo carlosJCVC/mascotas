@@ -4,8 +4,8 @@ import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
 
 const materialWidgetRoutes: Routes = [
-    { path: 'list', component: IndexComponent ,data: { animation: 'responsive' }},
-    { path: 'create', component: CreateComponent ,data: { animation: 'responsive' }}
+    { path: 'list', component: IndexComponent , data: { animation: 'responsive' }},
+    { path: 'create', component: CreateComponent , data: { animation: 'responsive' }}
 ];
 
 @NgModule({
@@ -17,4 +17,4 @@ const materialWidgetRoutes: Routes = [
     ]
 })
 
-export class PetsRouterModule {}
+export class PetsRouterModule { }
