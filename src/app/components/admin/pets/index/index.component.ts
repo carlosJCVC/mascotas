@@ -9,6 +9,7 @@ import {
     MatTableDataSource,
     MatIconModule
 } from '@angular/material';
+import { Router } from '@angular/router';
 
 // import { NotificationService } from '../../../../services/notification.service';
 // import { DialogService } from '../../../../services/dialog.service';
@@ -40,7 +41,8 @@ export class IndexComponent implements OnInit {
     searchKey: string;
 
     constructor(
-        public petServ: PetService
+        public petServ: PetService,
+        private router: Router,
     ) { }
 
     ngOnInit(){
@@ -54,6 +56,16 @@ export class IndexComponent implements OnInit {
         //             });
         //         };
         //     });
+    }
+    viewPet(id) {
+        // console.log(id);
+        // this.view.emit(id);
+        this.router.navigate(['/auth/pets/view/' , id]);
+
+    }
+    editPet(id) {
+        // console.log(id);
+        this.router.navigate(['/auth/pets/edit/' , id]);
     }
 
     getRows() {
@@ -133,6 +145,7 @@ export class IndexComponent implements OnInit {
         //this.listData.filter = this.searchKey.trim().toLowerCase();
     }
 
+   
     // onCreate() {
     //     this.petServ.initializeFormGroup();
     //     const dialogConfig = new MatDialogConfig();

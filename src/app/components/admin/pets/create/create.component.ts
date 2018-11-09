@@ -77,45 +77,20 @@ export class CreateComponent implements OnInit{
         });
 
         this.petForm.valueChanges.subscribe(data => this.onValueChanged(data));
-        this.onValueChanged();
-    }
-
-    onValueChanged(data?: any) {
-        // if (!this.userForm) {
-        //   return;
-        // }
-        // const form = this.userForm;
-        // for (const field in this.formErrors) {
-        //   if (Object.prototype.hasOwnProperty.call(this.formErrors, field)) {
-        //     this.formErrors[field] = '';
-        //     const control = form.get(field);
-        //     if (control && control.dirty && !control.valid) {
-        //       const messages = this.validationMessages[field];
-        //       for (const key in control.errors) {
-        //         if (Object.prototype.hasOwnProperty.call(control.errors, key)) {
-        //           this.formErrors[field] += messages[key] + ' ';
-        //         }
-        //       }
-        //     }
-        //   }
-        // }
     }
 
     create() {
        if (this.petForm.valid) {
            this.petForm.value.imagen = this.url;
+           this.petServ.add(this.petForm.value);
            console.log(this.petForm.value);
-           // this.petServ.add(this.petForm.value);
-            // if (!this.petServ.form.get('$key').value)
-            //    this.petServ.add(this.petForm.value);
-            // else
-            //     this.petServ.edit(1, this.petForm.value);
-
-            //this.petServ.initializeFormGroup();
             //this.notificationService.success(':: Submitted successfully');
-            //this.onClose();
         }
         //this.router.navigate(['/admin']);
+    }
+
+    onValueChanged(data?: any) {
+        
     }
 
     /*onClear() {

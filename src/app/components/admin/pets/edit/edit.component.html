@@ -1,0 +1,53 @@
+<mat-card>
+    <div class="container">
+        <div class="example-container">
+            <mat-card-title>
+                Registro de Mascotas
+            </mat-card-title>
+            <div *ngIf="existeImagen; else nothing;">
+                <img mat-card-sm-image src="{{url}}">
+                <br>
+            </div>
+            <br>
+            <ng-template #nothing></ng-template>
+            <button mat-raised-button (click)="openInput()">
+                Escoga la imagen para subir
+            </button>
+            <input id="fileInput" hidden type="file" (change)="onSelectFile($event)">
+            <!-- <input type='file' (change)="onSelectFile($event)"> -->
+            <br>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Nombre Mascota" required [(ngModel)]="pet_nombre">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Raza" required [(ngModel)]="pet_raza">
+            </mat-form-field>
+            <mat-form-field>
+                <input type="number" matInput placeholder="Edad (años)" required [(ngModel)]="pet_edad">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Procedencia" required [(ngModel)]="pet_procedencia"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Sexo">
+                    <mat-option value="macho">Macho</mat-option>
+                    <mat-option value="hembra">Hembra</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Especie" required [(ngModel)]="pet_especie"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Enfermedades" [(ngModel)]="pet_enfermedades"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Descripcion" [(ngModel)]="pet_descripcion"></textarea>
+            </mat-form-field>
+            <button mat-raised-button color="accent" (click)="onSubmit()">Enviar</button>
+            <br>
+            <br>
+            <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
+        </div>
+    </div>
+</mat-card>
