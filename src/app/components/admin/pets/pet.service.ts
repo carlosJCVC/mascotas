@@ -18,32 +18,6 @@ export class PetService {
         //this.url = environment.petsAPIazure + '/api/mascotas';
     }
 
-    form: FormGroup = new FormGroup({
-        $key: new FormControl(null),
-        fullName: new FormControl('', Validators.required),
-        raza: new FormControl('', Validators.required),
-        especie: new FormControl('', [Validators.required, Validators.minLength(8)]),
-        edad: new FormControl('', Validators.required),
-        sexo: new FormControl('1', Validators.required),
-        procedencia: new FormControl(0, Validators.required),
-        enfermedades: new FormControl('', Validators.required),
-        descripcion: new FormControl('')
-    });
-
-    initializeFormGroup() {
-        this.form.setValue({
-            $key: null,
-            fullName: '',
-            raza: '',
-            especie: '',
-            edad: '',
-            sexo: '1',
-            procedencia: 0,
-            enfermedades: '',
-            descripcion: '',
-        });
-    }
-
     add(data: any) {
         return this.http.post(this.url, data);
     }
@@ -62,9 +36,5 @@ export class PetService {
 
     delete(id) {
         return this.http.get(this.url + '/' + id);
-    }
-
-    populateForm(pet) {
-        this.form.setValue(_.omit(pet,'departmentName'));
     }
 }

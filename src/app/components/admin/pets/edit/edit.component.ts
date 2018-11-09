@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PetService } from '../pet.service';
-// import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-pet',
@@ -76,6 +75,7 @@ export class EditComponent implements OnInit {
             
         });
     }
+    
     onCancel() {
         window.history.back();
     }

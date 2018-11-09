@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { PetService } from '../pet.service';
 //import { NotificationService } from '../../../../services/notification.service';
 
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -54,6 +54,7 @@ export class CreateComponent implements OnInit{
     };
 
     constructor(
+        private activatedRoute: ActivatedRoute,
         private petServ: PetService,
         private router: Router,
         private fb: FormBuilder,
@@ -82,15 +83,15 @@ export class CreateComponent implements OnInit{
     create() {
        if (this.petForm.valid) {
            this.petForm.value.imagen = this.url;
-           this.petServ.add(this.petForm.value);
-           console.log(this.petForm.value);
+           this.petServ.add(this.petForm.value).subscribe(res => {
+                this.router.navigate(['/auth/pets/list']);
+            });
             //this.notificationService.success(':: Submitted successfully');
         }
-        //this.router.navigate(['/admin']);
     }
 
     onValueChanged(data?: any) {
-        
+
     }
 
     /*onClear() {
