@@ -39,6 +39,7 @@ import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import { ViewComponent } from './view/view.component';
 import { PetService } from './pet.service';
 
 export function highlightJsFactory(): any {
@@ -82,16 +83,17 @@ export function highlightJsFactory(): any {
         }),
         PetsRouterModule
     ],
-    
+
     declarations: [
         IndexComponent,
         CreateComponent,
-        EditComponent, 
+        EditComponent,
+        ViewComponent,
     ],
-    
+
     exports: [
     ],
-    
+
     providers: [
       PetService,
       DatePipe

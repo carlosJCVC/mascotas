@@ -131,9 +131,9 @@
                             <span *ngIf="th.key=='action'">
                                 <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Acciones</button>
                                 <mat-menu #menu="matMenu">
-                                  <button mat-menu-item>Ver</button>
-                                  <button mat-menu-item onclick="editar()" >Editar</button>
-                                  <button mat-menu-item>Eliminar</button>
+                                  <button mat-menu-item (click)="viewPet(row.id)">Ver</button>
+                                  <button mat-menu-item  >Editar</button>
+                                  <button mat-menu-item >Eliminar</button>
                                 </mat-menu>
                             </span>
                         </td>

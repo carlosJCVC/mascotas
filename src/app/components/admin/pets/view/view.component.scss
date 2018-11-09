@@ -1,0 +1,10 @@
+.example-card {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .example-header-image {
+    // background-image: url("{{pet?.imagen}}");
+    background-size: cover;
+  }
