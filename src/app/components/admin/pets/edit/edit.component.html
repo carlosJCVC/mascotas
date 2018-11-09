@@ -30,9 +30,9 @@
                 <textarea matInput placeholder="Procedencia" required [(ngModel)]="pet_procedencia"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <mat-select placeholder="Sexo">
-                    <mat-option value="macho">Macho</mat-option>
-                    <mat-option value="hembra">Hembra</mat-option>
+                <mat-select placeholder="Sexo" [(ngModel)]="selectedSex" >
+                    <mat-option value="MACHO">Macho</mat-option>
+                    <mat-option value="HEMBRA">Hembra</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field>

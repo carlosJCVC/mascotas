@@ -7,9 +7,9 @@ import { PetService } from '../pet.service';
 // import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-edit-pet',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+    selector: 'app-edit-pet',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss']
 })
 
 export class EditComponent implements OnInit {
@@ -17,7 +17,7 @@ export class EditComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private petService: PetService,
         private route: Router,
-    ) {}
+    ) { }
 
     ourFile: File;
     public url = '';
@@ -32,8 +32,9 @@ export class EditComponent implements OnInit {
     public pet_especie;
     public pet_enfermedades;
     public pet_descripcion;
-    public pet_sexo;
+    // public pet_sexo;
     public pet_estado;
+    public selectedSex;
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
@@ -47,11 +48,11 @@ export class EditComponent implements OnInit {
                 this.pet_especie = this.pet.especie;
                 this.pet_enfermedades = this.pet.enfermedades;
                 this.pet_descripcion = this.pet.descripcion;
-                this.pet_sexo = this.pet.sexo;
+                this.selectedSex = this.pet.sexo;
                 this.pet_estado = this.pet.estado;
-                
+
                 this.url = this.pet.imagen;
-               if (this.url === '') { this.existeImagen = false;  } else { this.existeImagen = true; }
+                if (this.url === '') { this.existeImagen = false; } else { this.existeImagen = true; }
 
 
             });
@@ -65,7 +66,7 @@ export class EditComponent implements OnInit {
         this.mascota.especie = this.pet_especie;
         this.mascota.enfermedades = this.pet_enfermedades;
         this.mascota.descripcion = this.pet_descripcion;
-        this.mascota.sexo = this.pet_sexo;
+        this.mascota.sexo = this.selectedSex;
         this.mascota.estado = this.pet_estado;
         this.mascota.imagen = this.url;
         this.mascota.id = this.id;
@@ -73,7 +74,7 @@ export class EditComponent implements OnInit {
         this.petService.edit(this.id, this.mascota).subscribe(res => {
             // console.log(res);
             this.route.navigate(['/auth/pets/list']);
-            
+
         });
     }
     onCancel() {
@@ -83,25 +84,25 @@ export class EditComponent implements OnInit {
     openInput() {
         // your can use ElementRef for this later
         document.getElementById('fileInput').click();
-      }
+    }
 
     fileChange(files: File[]) {
         if (files.length > 0) {
-          this.ourFile = files[0];
+            this.ourFile = files[0];
         }
-      }
-      onSelectFile(event) {
+    }
+    onSelectFile(event) {
         if (event.target.files && event.target.files[0]) {
-          const reader = new FileReader();
+            const reader = new FileReader();
 
-          reader.readAsDataURL(event.target.files[0]);
-          reader.onload = (
-              event) => {
-            this.url = event.target.result;
-            this.existeImagen = true;
-          }
+            reader.readAsDataURL(event.target.files[0]);
+            reader.onload = (
+                event) => {
+                this.url = event.target.result;
+                this.existeImagen = true;
+            }
         }
-      }
+    }
 
 
 
