@@ -63,6 +63,10 @@ export class IndexComponent implements OnInit {
         this.router.navigate(['/auth/pets/view/' , id]);
 
     }
+    editPet(id) {
+        // console.log(id);
+        this.router.navigate(['/auth/pets/edit/' , id]);
+    }
 
     getRows() {
         this.petServ.getAll().subscribe(

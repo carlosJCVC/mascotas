@@ -8,7 +8,7 @@ import { ViewComponent } from './view/view.component';
 const materialWidgetRoutes: Routes = [
     { path: 'list', component: IndexComponent , data: { animation: 'responsive' }},
     { path: 'create', component: CreateComponent , data: { animation: 'responsive' }},
-    { path: 'edit', component: EditComponent, data: {animation: 'responsive'}},
+    { path: 'edit/:id', component: EditComponent, data: {animation: 'responsive'}},
     { path: 'view/:id', component: ViewComponent, data: {animation: 'responsive'}},
 ];
 
