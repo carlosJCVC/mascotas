@@ -48,11 +48,11 @@ export class LoginComponent implements OnInit {
     login() {
         this.authService.post(this.userForm.value).subscribe( (response: any) => {
             sessionStorage.setItem('token', response.token);
-            this.router.navigate(['/']);
+            this.router.navigate(['auth/pets/list']);
         });
     }
 
     cancel() {
-        this.router.navigate(['/']);
+        this.router.navigate(['']);
     }
 }

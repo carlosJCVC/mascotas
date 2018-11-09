@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -25,12 +27,17 @@ export class UserMenuComponent implements OnInit {
     }
 
 
-    constructor(private elementRef: ElementRef) {
+    constructor(public router: Router ,private elementRef: ElementRef, public authService: AuthenticationService) {
         this.isOpen = false;
     }
 
 
     ngOnInit() {
+        this. currentUser.userName = 'fer' ;
     }
 
+    logout() {
+        this.authService.logout();
+        this.router.navigate(['']);
+    }
 }
