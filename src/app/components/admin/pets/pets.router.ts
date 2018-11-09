@@ -21,4 +21,4 @@ const materialWidgetRoutes: Routes = [
     ]
 })
 
-export class PetsRouterModule {}
+export class PetsRouterModule { }

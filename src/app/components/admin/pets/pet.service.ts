@@ -35,6 +35,6 @@ export class PetService {
     }
 
     delete(id) {
-        return this.http.get(this.url + '/' + id);
+        return this.http.delete(this.url + '/' + id);
     }
 }

@@ -25,6 +25,9 @@ export class IndexComponent implements OnInit {
     rows: Array<any> = [];
     showResponsiveTableCode;
     //@ViewChild( MatSort ) sort: MatSort;
+    displayedColumns: string[] = ['id', 'nombre', 'raza', 'edad', 'procedencia', 'sexo', 'especie', 'estado', 'created_at', 'actions'];
+    dataSource: MatTableDataSource<any>
+    //@ViewChild(MatSort) sort: MatSort;
     @ViewChild( MatPaginator ) paginator: MatPaginator;
     pageLength = 0;
     pageSize = 5;
@@ -35,7 +38,7 @@ export class IndexComponent implements OnInit {
     @Output() delete = new EventEmitter();
     @Output() view = new EventEmitter();
     @Output() page = new EventEmitter();
-    @Output() sort = new EventEmitter();
+    //@Output() sort = new EventEmitter();
     @Output() dup = new EventEmitter();
 
     searchKey: string;
@@ -145,32 +148,22 @@ export class IndexComponent implements OnInit {
         //this.listData.filter = this.searchKey.trim().toLowerCase();
     }
 
-   
-    // onCreate() {
-    //     this.petServ.initializeFormGroup();
-    //     const dialogConfig = new MatDialogConfig();
-    //     dialogConfig.disableClose = true;
-    //     dialogConfig.autoFocus = true;
-    //     dialogConfig.width = "60%";
-    //     this.dialog.open(CreateComponent,dialogConfig);
-    // }
-
-    // onEdit(row) {
-    //     this.petServ.populateForm(row);
-    //     const dialogConfig = new MatDialogConfig();
-    //     dialogConfig.disableClose = true;
-    //     dialogConfig.autoFocus = true;
-    //     dialogConfig.width = "60%";
-    //     this.dialog.open(CreateComponent,dialogConfig);
-    // }
-
-    // onDelete($key) {
-    //     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
-    //         .afterClosed().subscribe(res =>{
-    //         if(res){
-    //             this.petServ.delete($key);
-    //             this.notificationService.warn('! Deleted successfully');
-    //         }
-    //     });
-    // }
+    onDelete(id) {
+        if(confirm('Estas seguro que deseas eliminar este registro ?')){
+            this.petServ.delete(id).subscribe(
+                res => {
+                    location.reload();
+                    //this.router.navigate(['/auth/pets/list']);
+                }
+            );
+          //this.notificationService.warn('! Deleted successfully');
+        }
+        // this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
+        //     .afterClosed().subscribe(res =>{
+        //     if(res){
+        //         this.petServ.delete($key);
+        //         this.notificationService.warn('! Deleted successfully');
+        //     }
+        // });
+    }
 }
