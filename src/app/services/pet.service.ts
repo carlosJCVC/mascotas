@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,7 @@ export class PetService {
     url: string;
 
     constructor(public http: HttpClient, private datePipe: DatePipe) {
-      //this.url = environment.petsAPI + '/api/mascotas';
+      // this.url = environment.petsAPI + '/api/mascotas';
       this.url = environment.petsAPIazure + '/api/mascotas';
     }
 
@@ -65,6 +65,6 @@ export class PetService {
     }
 
     populateForm(pet) {
-        this.form.setValue(_.omit(pet,'departmentName'));
+        this.form.setValue(_.omit(pet, 'departmentName'));
     }
 }
