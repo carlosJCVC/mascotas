@@ -1,11 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 //import { MatDialogRef } from '@angular/material';
-//import { PetService } from '../pet.service';
+import { PetService } from '../pet.service';
 //import { NotificationService } from '../../../../services/notification.service';
 
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-//import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: "app-create-pet",
@@ -18,25 +17,46 @@ export class CreateComponent implements OnInit{
     petForm: FormGroup;
     url = '';
     formErrors = {
-        'email': '',
-        'password': ''
+        'nombre': '',
+        'raza': '',
+        'especie': '',
+        'edad': '',
+        'sexo': '',
+        'procedencia': '',
+        'enfermedades': '',
+        'descripcion': '',
     };
     validationMessages = {
-        'email': {
-            'required': 'Please enter your email',
-            'email': 'please enter your vaild email'
+        'nombre': {
+            'required': 'Ingresa un nombre de la mascota',
         },
-        'password': {
-            'required': 'please enter your password',
-            'pattern': 'The password must contain numbers and letters',
-            'minlength': 'Please enter more than 4 characters',
-            'maxlength': 'Please enter less than 25 characters',
-        }
+        'raza': {
+            'required': 'Ingresa la raza de la mascota',
+        },
+        'especie': {
+            'required': 'Selecciona la especie de la mascota',
+        },
+        'edad': {
+            'required': 'Edad de la mascota es requerida',
+        },
+        'sexo': {
+            'required': 'Sexo de la mascota es requerida',
+        },
+        'procedencia': {
+            'required': 'Sexo de la mascota es requerida',
+        },
+        'enfermedades': {
+            'required': 'Sexo de la mascota es requerida',
+        },
+        'descripcion': {
+            'required': 'Sexo de la mascota es requerida',
+        },
     };
 
     constructor(
+        private petServ: PetService,
         private router: Router,
-        private fb: FormBuilder
+        private fb: FormBuilder,
     ){};
 
     ngOnInit() {
@@ -46,17 +66,14 @@ export class CreateComponent implements OnInit{
 
     buildForm() {
         this.petForm = this.fb.group({
-            'email': ['', [
-                Validators.required,
-                Validators.email
-            ]
-            ],
-            'password': ['', [
-                Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-                Validators.minLength(6),
-                Validators.maxLength(25)
-            ]
-            ],
+            'nombre': ['', [ Validators.required ]],
+            'raza': ['', [ Validators.required ]],
+            'especie': ['', [ Validators.required ]],
+            'edad': ['', [ Validators.required ]],
+            'sexo': ['', [ Validators.required ]],
+            'procedencia': ['', [ Validators.required ]],
+            'enfermedades': ['', [ Validators.required ]],
+            'descripcion': ['', [ Validators.required ]],
         });
 
         this.petForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -84,8 +101,21 @@ export class CreateComponent implements OnInit{
         // }
     }
 
-    login() {
-        this.router.navigate(['/']);
+    create() {
+       if (this.petForm.valid) {
+           this.petForm.value.imagen = this.url;
+           console.log(this.petForm.value);
+           // this.petServ.add(this.petForm.value);
+            // if (!this.petServ.form.get('$key').value)
+            //    this.petServ.add(this.petForm.value);
+            // else
+            //     this.petServ.edit(1, this.petForm.value);
+
+            //this.petServ.initializeFormGroup();
+            //this.notificationService.success(':: Submitted successfully');
+            //this.onClose();
+        }
+        //this.router.navigate(['/admin']);
     }
 
     /*onClear() {
@@ -94,20 +124,26 @@ export class CreateComponent implements OnInit{
         this.notificationService.success(':: Submitted successfully');
     }*/
 
-    /*onSubmit() {
-        if (this.petServ.form.valid) {
-            if (!this.petServ.form.get('$key').value)
-                this.petServ.add(this.petServ.form.value);
-            else
-                this.petServ.edit(1, this.petServ.form.value);
-            this.petServ.form.reset();
-            this.petServ.initializeFormGroup();
-            this.notificationService.success(':: Submitted successfully');
-            this.onClose();
-        }
-    }*/
+    onSubmit() {
+        // alert();
+        // if (this.petForm.valid) {
+        //     if (!this.petServ.form.get('$key').value){
+        //         this.petForm.value.imagen = this.url;
+        //         this.petServ.add(this.petForm.value);
+        //     }
+        //     else
+        //         this.petServ.edit(1, this.petServ.form.value);
+        //     this.petServ.form.reset();
+        //     this.petServ.initializeFormGroup();
+        //     this.notificationService.success(':: Submitted successfully');
+        //     this.onClose();
+        // }
+    }
 
     onSelectFile(event) {
+        var element = document.getElementById("preview");
+        element.classList.remove("preview_img");
+
         if (event.target.files && event.target.files[0]) {
           var reader = new FileReader();
 

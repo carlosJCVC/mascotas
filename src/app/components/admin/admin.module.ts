@@ -65,7 +65,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatProgressBarModule,
     ],
 
-
     exports: [
         SidemenuComponent,
         SidemenuItemComponent,
