@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">  
     <span>Mascotas</span>
     <span class="center"></span>
-    <span>LOGIN</span>
+    <span (click)="goToLogin()">LOGIN</span>
 </mat-toolbar>
+<h2>Mascotas en Adopcion</h2>
+<div class="container">
+    <app-pet-view *ngFor="let pet of pets" [mascota]="pet"></app-pet-view>
+</div>

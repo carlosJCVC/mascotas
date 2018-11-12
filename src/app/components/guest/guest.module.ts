@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import {
@@ -7,9 +7,12 @@ import {
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
 } from '@angular/material';
 import { PetListComponent } from './pet-list/pet-list.component';
+import { PetViewComponent } from './pet-view/pet-view.component';
+import { PetService } from 'src/app/services/pet.service';
 
 const routes: Routes = [
     { path: '', component: PetListComponent },
@@ -18,6 +21,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
+        MatCardModule,
         MatToolbarModule,
         MatButtonModule,
         MatIconModule,
@@ -25,8 +29,8 @@ const routes: Routes = [
         MatSidenavModule,
         RouterModule.forChild(routes)
     ],
-    declarations: [PetListComponent],
+    declarations: [PetListComponent, PetViewComponent],
     exports: [RouterModule],
-    providers: []
+    providers: [PetService]
 })
 export class GuestModule { }
