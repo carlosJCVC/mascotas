@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet-view',
@@ -9,9 +10,11 @@ export class PetViewComponent implements OnInit {
 
   @Input() mascota: any;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
-
+  sendToPetRequest() {
+    this.router.navigate(['auth']);
+  }
 }
