@@ -18,5 +18,25 @@ export const menus = [
                 'open': false,
             }
         ]
+    },
+    {
+        'name': 'Solicitudes de adopcion',
+        'icon': 'assignment',
+        'link': false,
+        'open': false,
+        'sub': [
+            {
+                'name': 'Lista de solicitudes',
+                'icon': 'filter_list',
+                'link': 'adoption_requests/list',
+                'open': false,
+            },
+            {
+                'name': 'Crear solicitud',
+                'icon': 'add_circle',
+                'link': 'adoption_requests/create',
+                'open': false,
+            }
+        ]
     }
 ];

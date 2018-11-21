@@ -1,0 +1,128 @@
+<div class="form" class="petForm">
+    <div style="text-align:center">
+      <h2>
+        Lenar formulario de solicitud de adopcion
+      </h2>
+    </div>
+
+    <mat-card>
+        <mat-card-content>
+            <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="adoptionRequestForm">
+
+                <mat-form-field>
+                    <input formControlName="nombre" matInput class="input" placeholder="Nombre mascota" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.nombre" class="help is-danger">
+                    {{ formErrors.nombre }}
+                </div>
+
+                <mat-form-field>
+                    <input formControlName="cedula_identidad" matInput class="input" placeholder="C.I." required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.cedula_identidad" class="help is-danger">
+                    {{ formErrors.cedula_identidad }}
+                </div>
+
+				<mat-form-field>
+                    <mat-select formControlName="departamento" placeholder="Departamento">
+                        <mat-option value="CB">Cochabamba</mat-option>
+                        <mat-option value="LP">LA PAZ</mat-option>
+                        <mat-option value="OR">ORURO</mat-option>
+                        <mat-option value="PT">POTOSI</mat-option>
+                        <mat-option value="SC">SANTA CRUZ</mat-option>
+                        <mat-option value="BN">BENI</mat-option>
+                        <mat-option value="PA">PANDO</mat-option>
+                        <mat-option value="TJ">TARIJA</mat-option>
+                        <mat-option value="CH">CHUQUISACA</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="provincia" matInput class="input" placeholder="Provincia" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.provincia" class="help is-danger">
+                    {{ formErrors.provincia }}
+                </div>
+
+                <mat-form-field>
+                    <input formControlName="direccion" matInput class="input" placeholder="Direccion" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.direccion" class="help is-danger">
+                    {{ formErrors.direccion }}
+                </div>
+
+				<mat-form-field>
+                    <input formControlName="ocupacion" matInput class="input" placeholder="Ocupacion" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.ocupacion" class="help is-danger">
+                    {{ formErrors.ocupacion }}
+                </div>
+
+				<mat-form-field>
+                    <mat-select formControlName="estado_civil" placeholder="Estado civil">
+                        <mat-option value="soltero">SOLTERO/A</mat-option>
+                        <mat-option value="casado">CASADO/A</mat-option>
+                        <mat-option value="divorciado">DIVORCIADO/A</mat-option>
+                        <mat-option value="viudo">VIUDO/A</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="razon_adopcion" matInput class="input" placeholder="Por que quiere adoptar a la mascota ?" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.razon_adopcion" class="help is-danger">
+                    {{ formErrors.razon_adopcion }}
+                </div>
+
+				<mat-form-field>
+                    <input formControlName="mascotas_actuales" matInput class="input" placeholder="Actualmente tiene otras mascotas ? Cuales ?" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.mascotas_actuales" class="help is-danger">
+                    {{ formErrors.mascotas_actuales }}
+                </div>
+
+                <mat-form-field>
+                    <input formControlName="razon_mascotas_esterilizadas" matInput class="input" placeholder="Sus mascotas estan esterilizadas ? Por que ?" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.razon_mascotas_esterilizadas" class="help is-danger">
+                    {{ formErrors.razon_mascotas_esterilizadas }}
+                </div>
+
+                <mat-form-field>
+                    <input formControlName="mascotas_anteriomente" matInput class="input" placeholder="Anteriormente a tenido otras mascotas ? Cuales ?" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.mascotas_anteriomente" class="help is-danger">
+                    {{ formErrors.mascotas_anteriomente }}
+                </div>
+
+                <mat-form-field>
+                    <input formControlName="estado_mascotas_anteriores" matInput class="input" placeholder="Que paso con sus anteriores mascotas ?" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.estado_mascotas_anteriores" class="help is-danger">
+                    {{ formErrors.estado_mascotas_anteriores }}
+                </div>
+
+				<mat-form-field>
+                    <input formControlName="visita_periodica_domicilio" matInput class="input" placeholder="Está de acuerdo que se realicese una visaita periódica a su domicilio para ver cómo se encuentra la mascota adoptada? ?" required>
+                    <mat-error>Este campo es requerido.</mat-error>
+                </mat-form-field>
+                <div *ngIf="formErrors.estado_mascotas_anteriores" class="help is-danger">
+                    {{ formErrors.estado_mascotas_anteriores }}
+                </div>
+                
+                <button mat-raised-button color="primary" type="submit" [disabled]="!adoptionRequestForm.valid" (click)="create()">Guardar</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

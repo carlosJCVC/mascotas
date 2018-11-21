@@ -1,0 +1,33 @@
+.preview_img {
+	display: none;
+}
+
+.form {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    text-align: center
+}
+
+.mat-form-field {
+    width: 80%;
+}
+
+/* notification */
+snack-bar-container.success {
+  background-color: #5cb85c;
+  color : #fff;
+}
+
+snack-bar-container.notification simple-snack-bar{
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.hide{
+  display: none;
+}
+
+.add-bottom-padding{
+  padding-bottom: 10px;
+}
