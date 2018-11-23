@@ -40,11 +40,6 @@ export const ResponsiveTableHelpers = {
             order:'asc'
         },
         {
-            name:'Fecha Registro',
-            key:'created_at',
-            order:'asc'
-        },
-        {
             name:'Acciones',
             key:'action',
             order:'asc'
