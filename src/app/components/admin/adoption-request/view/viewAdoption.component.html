@@ -1,0 +1,80 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <!-- id: "5bf84ff22485369a23112115",
+          ci: "123456",
+          nombre: "Geneva Hatfield",
+          correo: "genevahatfield@joviold.com",
+          direccion: "486 Pineapple Street, Hayden, Texas, 6782",
+          provincia: "Officia mollit mollit labore ullamco reprehenderit cupidatat et sunt commodo incididunt ipsum ex adipisicing. Aliqua ut pariatur reprehenderit reprehenderit laborum dolor sint non deserunt dolore. Quis dolor est magna non proident ad quis. Ullamco consectetur magna minim anim ea ullamco in tempor mollit dolore. Laborum est fugiat dolore Lorem proident consectetur deserunt id. Aliquip velit velit elit adipisicing irure deserunt anim aute nulla eu magna nulla. Aliquip dolor quis in ullamco labore aliqua quis voluptate id velit magna cillum elit commodo.\r\n",
+          esta_civil: "enim voluptate",
+          masc_act: "et labore",
+          masc_este: "ut ipsum",
+          masc_ant: "veniam fugiat",
+          masc_visita: "ea quis" -->
+    <mat-card-title>{{row.nombre}}}</mat-card-title>
+    <mat-card-subtitle>{{row.id}}</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="{{pet?.imagen}}" alt="Photo"> -->
+  <mat-card-subtitle>
+    <strong>Nombre: </strong> {{row.nombre}}
+  </mat-card-subtitle>
+  <mat-card-subtitle><strong>Ci: </strong>{{row.ci}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Correo: </strong>{{row.correo}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.direccion}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle>
+    <strong>Provincia: </strong>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.provincia}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.direccion}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle><strong>Estado Civil: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.esta_civil}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle><strong>Mascota Actual: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.mac_act}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle><strong>Mascota Este: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.masc_este}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle><strong>Mascota Ante: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.masc_ante}}
+    </p>
+  </mat-card-content>
+  <mat-card-subtitle><strong>Mascota Visita: </strong></mat-card-subtitle>
+  <mat-card-content>
+    <p>
+      {{row.masc_visita}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <button mat-raised-button color="accent" (click)="onSubmit()">Aceptar</button>
+    <br><br>
+
+    <button mat-raised-button color="" (click)="onCancel()">Rechazars</button>
+  </mat-card-actions>
+</mat-card>

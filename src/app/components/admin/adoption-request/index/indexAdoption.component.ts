@@ -33,7 +33,8 @@ export class IndexAdoptionComponent implements OnInit {
 	) { }
 
 	ngOnInit(){
-		this.getRows();
+        // this.getRows();
+        this.rows=this.helpers.rows;
     }
 
     getRows() {
@@ -93,7 +94,7 @@ export class IndexAdoptionComponent implements OnInit {
     }
 
     viewAdoptionRequest(id) {
-        this.router.navigate(['/auth/pets/view/' , id]);
+        this.router.navigate(['/auth/adoption_requests/view/' , id]);
 
     }
     editAdoptionRequest(id) {

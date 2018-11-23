@@ -39,7 +39,7 @@ import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { IndexAdoptionComponent } from './index/indexAdoption.component';
 import { CreateComponent } from './create/create.component';
 //import { EditComponent } from './edit/edit.component';
-//import { ViewComponent } from './view/view.component';
+import { ViewAdoptionComponent } from './view/viewAdoption.component';
 //import { PetService } from './pet.service';
 
 export function highlightJsFactory(): any {
@@ -88,7 +88,7 @@ export function highlightJsFactory(): any {
         IndexAdoptionComponent,
         CreateComponent,
         //EditComponent,
-        //ViewComponent,
+        ViewAdoptionComponent,
     ],
 
     exports: [

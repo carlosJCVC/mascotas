@@ -1,0 +1,15 @@
+.example-card {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .example-header-image {
+    // background-image: url("{{pet?.imagen}}");
+    background-size: cover;
+  }
+  
+  mat-card-actions > * {
+    width: 100%;
+   
+  }
