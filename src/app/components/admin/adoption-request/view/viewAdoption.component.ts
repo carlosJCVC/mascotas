@@ -35,14 +35,24 @@ export class ViewAdoptionComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
-            // console.log(this.id);
             this.getRow(this.id);
         });
     }
 
     getRow(id) {
-        this.row = this.helpers.rows.find(x => x.id === id);
+        // this.row = this.helpers.rows.find(x => x.id === id);
         // console.log(this.row);
+        
+        // this.adoptionServ.getOne(id).subscribe(one = > {
+        //     console.log(one);
+        //     this.row=one;
+        // });
+
+        this.adoptionServ.getOne(id).subscribe(one=>{
+            alert();
+            let adoption=one;
+            this.row=adoption;
+        })
 
     }
     onSubmit() {

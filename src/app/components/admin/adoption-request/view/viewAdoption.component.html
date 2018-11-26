@@ -11,19 +11,19 @@
           masc_este: "ut ipsum",
           masc_ant: "veniam fugiat",
           masc_visita: "ea quis" -->
-    <mat-card-title>{{row.nombre}}}</mat-card-title>
-    <mat-card-subtitle>{{row.id}}</mat-card-subtitle>
+    <mat-card-title>{{row?.nombre}}}</mat-card-title>
+    <mat-card-subtitle>{{row?.id}}</mat-card-subtitle>
   </mat-card-header>
   <!-- <img mat-card-image src="{{pet?.imagen}}" alt="Photo"> -->
   <mat-card-subtitle>
-    <strong>Nombre: </strong> {{row.nombre}}
+    <strong>Nombre: </strong> {{row?.nombre}}
   </mat-card-subtitle>
-  <mat-card-subtitle><strong>Ci: </strong>{{row.ci}}</mat-card-subtitle>
-  <mat-card-subtitle><strong>Correo: </strong>{{row.correo}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Ci: </strong>{{row?.ci}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Correo: </strong>{{row?.correo}}</mat-card-subtitle>
   <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.direccion}}
+      {{row?.direccion}}
     </p>
   </mat-card-content>
   <mat-card-subtitle>
@@ -31,43 +31,43 @@
   </mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.provincia}}
+      {{row?.provincia}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.direccion}}
+      {{row?.direccion}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Estado Civil: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.esta_civil}}
+      {{row?.esta_civil}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Actual: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.mac_act}}
+      {{row?.mac_act}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Este: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.masc_este}}
+      {{row?.masc_este}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Ante: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.masc_ante}}
+      {{row?.masc_ante}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Visita: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row.masc_visita}}
+      {{row?.masc_visita}}
     </p>
   </mat-card-content>
   <mat-card-actions>

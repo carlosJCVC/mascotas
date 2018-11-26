@@ -14,7 +14,7 @@ export class AdoptionService {
     url: string;
 
     constructor(public http: HttpClient) {
-        this.url = environment.petsAPI + '/api/mascotas';
+        this.url = environment.petsAPIlaravel + '/api/adoption_request';
         //this.url = environment.petsAPIazure + '/api/adoption';
     }
 
@@ -23,6 +23,7 @@ export class AdoptionService {
     }
 
     getAll() {
+        console.log(this.url);
         return this.http.get(this.url);
     }
 

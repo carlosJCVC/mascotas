@@ -6,7 +6,10 @@ export const environment = {
   production: false,
   petsAPI: "https://localhost:44307",
   petsAPIazure: "https://petsapi20181109124340.azurewebsites.net",
-  petsAPIlaravel: "http://bet.mascotasapi.com"
+  petsAPIlaravel: "http://localhost:8000"
+  // petsAPIlaravel: "http://192.168.43.72"
+
+
 };
 
 /*

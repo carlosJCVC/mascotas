@@ -33,11 +33,11 @@ export class IndexAdoptionComponent implements OnInit {
 	) { }
 
 	ngOnInit(){
-        // this.getRows();
-        this.rows=this.helpers.rows;
+        this.getRows();
+        // this.rows=this.helpers.rows;
     }
 
-    getRows() {
+    getRows() {        
     	this.adoptionServ.getAll().subscribe(
             data => {
                 let array = Object.keys(data).map(function(key, index) {
