@@ -6,7 +6,7 @@ export const menus = [
         'open': false,
         'sub': [
             {
-                'name': 'Registro de Mascotas',
+                'name': 'Lista de Mascotas',
                 'icon': 'filter_list',
                 'link': 'pets/list',
                 'open': false,
