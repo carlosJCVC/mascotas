@@ -25,7 +25,8 @@ export class IndexAdoptionComponent implements OnInit {
 	rows: Array<any> = [];
 	helpers = ResponsiveTableHelpers;
 	pageLength = 0;
-	searchKey: string;
+    searchKey: string;
+    searchText:string;
 	
 	constructor(
 		public adoptionServ: AdoptionService,
@@ -101,28 +102,28 @@ export class IndexAdoptionComponent implements OnInit {
         this.router.navigate(['/auth/pets/edit/' , id]);
     }
 
-    onSearchClear() {
-        this.searchKey = "";
-        this.applyFilter();
-    }
+    // onSearchClear() {
+    //     this.searchKey = "";
+    //     this.applyFilter();
+    // }
     
-    applyFilter() {
-        var filter, table, tr, td, i;
-        filter = this.searchKey.trim().toLowerCase();
-        table = document.getElementById("tableAdoptionRequest");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            console.log(td.spam);
-            if (td) {
-              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-        }
-    }
+    // applyFilter() {
+    //     var filter, table, tr, td, i;
+    //     filter = this.searchKey.trim().toLowerCase();
+    //     table = document.getElementById("tableAdoptionRequest");
+    //     tr = table.getElementsByTagName("tr");
+    //     for (i = 0; i < tr.length; i++) {
+    //         td = tr[i].getElementsByTagName("td")[1];
+    //         console.log(td.spam);
+    //         if (td) {
+    //           if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+    //             tr[i].style.display = "";
+    //           } else {
+    //             tr[i].style.display = "none";
+    //           }
+    //         }
+    //     }
+    // }
 
     onDelete(id) {
         if(confirm('Estas seguro que deseas eliminar este registro ?')){
