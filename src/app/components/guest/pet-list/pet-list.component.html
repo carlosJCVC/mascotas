@@ -4,6 +4,28 @@
     <span (click)="goToLogin()">LOGIN</span>
 </mat-toolbar>
 <h2>Mascotas en Adopcion</h2>
+<mat-icon (click)="swipeSearch()">search</mat-icon>
+<div *ngIf="searchOpen">
+    <mat-form-field>
+        <mat-select placeholder="Especie" [(ngModel)]="especie" (selectionChange)="filterPets()">
+          <mat-option *ngFor="let option of especies" [value]="option.value">{{option.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="raza" matInput placeholder="Raza" (change)="filterPets()">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Sexo" [(ngModel)]="sexo" (selectionChange)="filterPets()">
+          <mat-option *ngFor="let option of sexos" [value]="option.value">{{option.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Edad" [(ngModel)]="edad" (selectionChange)="filterPets()">
+          <mat-option *ngFor="let option of edades" [value]="option.value">{{option.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+
 <div class="container">
     <app-pet-view *ngFor="let pet of pets" [mascota]="pet"></app-pet-view>
 </div>

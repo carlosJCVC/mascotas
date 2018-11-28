@@ -20,37 +20,30 @@ export class PetService {
 
     }
 
-    form: FormGroup = new FormGroup({
-        $key: new FormControl(null),
-        fullName: new FormControl('', Validators.required),
-        raza: new FormControl('', Validators.required),
-        especie: new FormControl('', [Validators.required, Validators.minLength(8)]),
-        edad: new FormControl('', Validators.required),
-        sexo: new FormControl('1', Validators.required),
-        procedencia: new FormControl(0, Validators.required),
-        enfermedades: new FormControl('', Validators.required),
-        descripcion: new FormControl('')
-    });
-
-    initializeFormGroup() {
-        this.form.setValue({
-            $key: null,
-            fullName: '',
-            raza: '',
-            especie: '',
-            edad: '',
-            sexo: '1',
-            procedencia: 0,
-            enfermedades: '',
-            descripcion: '',
-        });
-    }
 
     add(data: any) {
       return this.http.post(this.url, data);
     }
 
-    getAll() {
+    getAll(especie?: string, raza?: string, sexo?: string, edad?: string) {
+      this.url = environment.petsAPIazure + '/api/mascotas';
+      if (sexo || especie || edad || raza) {
+        this.url += '?';
+      }
+      if (especie && especie !== '') {
+        this.url += `&especie=${especie}`;
+      }
+      if (raza && raza !== '') {
+        this.url += `&raza=${raza}`;
+      }
+      if (sexo && sexo !== '') {
+        this.url += `&sexo=${sexo}`;
+      }
+      if (edad && edad !== '') {
+        this.url += `&edadmin=${edad[0]}`;
+        this.url += `&edadmax=${edad[1]}`;
+      }
+      console.log(this.url);
       return this.http.get(this.url);
     }
 
@@ -64,9 +57,5 @@ export class PetService {
 
     delete(id) {
       return this.http.get(this.url + '/' + id);
-    }
-
-    populateForm(pet) {
-        this.form.setValue(_.omit(pet, 'departmentName'));
     }
 }
