@@ -10,7 +10,7 @@
             <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="adoptionRequestForm">
 
                 <mat-form-field>
-                    <input formControlName="nombre" matInput class="input" placeholder="Nombre mascota" required>
+                    <input formControlName="nombre" matInput class="input" placeholder="Nombre Completo" required>
                     <mat-error>Este campo es requerido.</mat-error>
                 </mat-form-field>
                 <div *ngIf="formErrors.nombre" class="help is-danger">

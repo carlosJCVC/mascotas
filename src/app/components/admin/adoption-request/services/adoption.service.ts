@@ -14,7 +14,7 @@ export class AdoptionService {
     url: string;
 
     constructor(public http: HttpClient) {
-        this.url = environment.petsAPIlaravel + '/api/adoption_request';
+        this.url = environment.petsAPIlaravel + '/api/adoption_applications';
         //this.url = environment.petsAPIazure + '/api/adoption';
     }
 

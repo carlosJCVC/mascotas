@@ -45,10 +45,9 @@ export class IndexAdoptionComponent implements OnInit {
                     return {
                         id: data[key].id,
                         nombre: data[key].nombre,
-                        ci: data[key].ci,
-                        correo: data[key].correo,
-                        direccion: data[key].direccion,
-                        provincia: data[key].provincia,
+                        ci: data[key].cedula_identidad,
+                        correo: data[key].correo_electronico,
+                        departamento: data[key].departamento,
                         esta_civil: data[key].est_civil,
                         masc_act: data[key].masc_act,
                         masc_este: data[key].masc_este,

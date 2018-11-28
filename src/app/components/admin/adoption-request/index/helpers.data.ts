@@ -21,17 +21,8 @@ export const ResponsiveTableHelpers = {
             order:'asc'
         },
         {
-            name:'Direccion',
-            key:'direccion',
-            order:'asc'
-        },
-        {
             name:'Departamento',
             key:'departamento',
-            order:'asc'
-        },        {
-            name:'Estado Civil',
-            key:'esta_civil',
             order:'asc'
         },
         {

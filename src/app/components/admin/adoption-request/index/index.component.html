@@ -5,21 +5,10 @@
         </mat-toolbar>
 
         <div class="table-container">
-            <!-- <div class="search-div example-header" style="padding: 0 20px;">
-                <mat-form-field class="search-form-field" floatPlaceholder="never" style="color: black; width: 100%;">
-                    <input matInput #filter [(ngModel)]="searchKey" placeholder="Filter pets" autocomplete="off" (keyup)="applyFilter()">
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey" (click)="onSearchClear()">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-            </div> -->
             <div class="table-container">
                 <div class="search-div example-header" style="padding: 0 20px;">
                     <mat-form-field class="search-form-field" floatPlaceholder="never"  style="color: black; width: 100%;">
                         <input matInput  [(ngModel)]="searchText" placeholder="Buscar por Nombre, Ci, Correo" autocomplete="off" >
-                        <!-- <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey" (click)="onSearchClear()">
-                            <mat-icon>close</mat-icon>
-                        </button> -->
                     </mat-form-field>
                 </div>
             
