@@ -48,8 +48,8 @@ export class PetService {
       return this.http.post(this.url, data);
     }
 
-    getAll() {
-      return this.http.get(this.url);
+    getAll(sex?: string, especie?: string, edad?: string, raza?: string) {
+      return this.http.get(this.url + `search?sex=${sex}&especie=${especie}&edad=${edad}&raza=${raza}`);
     }
 
     getOne(id) {
