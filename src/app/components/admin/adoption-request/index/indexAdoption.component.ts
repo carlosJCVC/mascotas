@@ -35,10 +35,9 @@ export class IndexAdoptionComponent implements OnInit {
 
 	ngOnInit(){
         this.getRows();
-        // this.rows=this.helpers.rows;
-    }
+	}
 
-    getRows() {        
+    getRows() {
     	this.adoptionServ.getAll().subscribe(
             data => {
                 let array = Object.keys(data).map(function(key, index) {
@@ -95,8 +94,8 @@ export class IndexAdoptionComponent implements OnInit {
 
     viewAdoptionRequest(id) {
         this.router.navigate(['/auth/adoption_requests/view/' , id]);
-
     }
+
     editAdoptionRequest(id) {
         this.router.navigate(['/auth/pets/edit/' , id]);
     }
@@ -104,24 +103,6 @@ export class IndexAdoptionComponent implements OnInit {
     // onSearchClear() {
     //     this.searchKey = "";
     //     this.applyFilter();
-    // }
-    
-    // applyFilter() {
-    //     var filter, table, tr, td, i;
-    //     filter = this.searchKey.trim().toLowerCase();
-    //     table = document.getElementById("tableAdoptionRequest");
-    //     tr = table.getElementsByTagName("tr");
-    //     for (i = 0; i < tr.length; i++) {
-    //         td = tr[i].getElementsByTagName("td")[1];
-    //         console.log(td.spam);
-    //         if (td) {
-    //           if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-    //             tr[i].style.display = "";
-    //           } else {
-    //             tr[i].style.display = "none";
-    //           }
-    //         }
-    //     }
     // }
 
     onDelete(id) {

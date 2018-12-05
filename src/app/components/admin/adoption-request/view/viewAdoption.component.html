@@ -1,25 +1,14 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <!-- id: "5bf84ff22485369a23112115",
-          ci: "123456",
-          nombre: "Geneva Hatfield",
-          correo: "genevahatfield@joviold.com",
-          direccion: "486 Pineapple Street, Hayden, Texas, 6782",
-          provincia: "Officia mollit mollit labore ullamco reprehenderit cupidatat et sunt commodo incididunt ipsum ex adipisicing. Aliqua ut pariatur reprehenderit reprehenderit laborum dolor sint non deserunt dolore. Quis dolor est magna non proident ad quis. Ullamco consectetur magna minim anim ea ullamco in tempor mollit dolore. Laborum est fugiat dolore Lorem proident consectetur deserunt id. Aliquip velit velit elit adipisicing irure deserunt anim aute nulla eu magna nulla. Aliquip dolor quis in ullamco labore aliqua quis voluptate id velit magna cillum elit commodo.\r\n",
-          esta_civil: "enim voluptate",
-          masc_act: "et labore",
-          masc_este: "ut ipsum",
-          masc_ant: "veniam fugiat",
-          masc_visita: "ea quis" -->
-    <mat-card-title>{{row?.nombre}}}</mat-card-title>
+    <mat-card-title>{{row?.nombre}}</mat-card-title>
     <mat-card-subtitle>{{row?.id}}</mat-card-subtitle>
   </mat-card-header>
-  <!-- <img mat-card-image src="{{pet?.imagen}}" alt="Photo"> -->
+
   <mat-card-subtitle>
     <strong>Nombre: </strong> {{row?.nombre}}
   </mat-card-subtitle>
-  <mat-card-subtitle><strong>Ci: </strong>{{row?.ci}}</mat-card-subtitle>
-  <mat-card-subtitle><strong>Correo: </strong>{{row?.correo}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Ci: </strong>{{row?.cedula_identidad}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Correo: </strong>{{row?.correo_electronico}}</mat-card-subtitle>
   <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>

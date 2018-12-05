@@ -21,11 +21,6 @@ export const ResponsiveTableHelpers = {
             order:'asc'
         },
         {
-            name:'Departamento',
-            key:'departamento',
-            order:'asc'
-        },
-        {
             name:'Acciones',
             key:'action',
             order:'asc'
@@ -151,31 +146,4 @@ export const ResponsiveTableHelpers = {
           masc_visita: "anim adipisicing"
         }
       ]
-
-    // rows : [{
-    //     id: "1",
-    //     nombre: "Isla A.",
-    //     raza: "Pitbull",
-    //     edad: "2 meses",
-    //     procedencia: "Callejero",
-    //     sexo: "MACHO",
-    //     especie: "PERRO",
-    //     estado: "ADOPTADO",
-    // },
-    // {
-    //     id: "1",
-    //     nombre: "Isla A.",
-    //     raza: "Pitbull",
-    //     edad: "2 meses",
-    //     procedencia: "Callejero",
-    //     sexo: "MACHO",
-    //     especie: "PERRO",
-    //     estado: "ADOPTADO",
-    //     created_at: "19-05-04 00:00:00",
-    // },
-
-
-    // ],
-
-
 }

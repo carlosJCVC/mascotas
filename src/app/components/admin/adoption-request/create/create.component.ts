@@ -1,20 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-//import { MatDialogRef } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
 import { AdoptionService } from '../services/adoption.service';
-//import { NotificationService } from '../../../../services/notification.service';
 
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-create-adoption",
-  templateUrl: "./create.component.html",
-  styleUrls: ["./create.component.scss"]
+  selector: 'app-create-adoption',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
 
 export class CreateComponent implements OnInit {
-
-	adoptionRequestForm: FormGroup;
+    adoptionRequestForm: FormGroup;
     url = '';
     formErrors = {
         'nombre': '',
@@ -34,32 +31,26 @@ export class CreateComponent implements OnInit {
     };
 
     validationMessages = {
-        'nombre': { 'required': 'Ingresa su nombre',},
-        'cedula_identidad': { 'required': 'Ingresa su cedula_identidad',},
-        'departamento': { 'required': 'Ingresa su Departamento',},
-        'provincia': { 'required': 'Ingresa su Provincia',},
-        'direccion': { 'required': 'Ingresa su Direccion',},
-        'ocupacion': { 'required': 'Ingresa su Ocupacion',},
-        'estado_civil': { 'required': 'Ingresa su Estado_civil',},
-        'estado_solicitud': { 'required': 'Ingresa su Estado_solicitud',},
-        'razon_adopcion': { 'required': 'Ingresa su Razon_adopcion',},
-        'mascotas_actuales': { 'required': 'Ingresa su Mascotas_actuales',},
-        'razon_mascotas_esterilizadas': { 'required': 'Ingresa su Razon_mascotas_esterilizadas',},
-        'mascotas_anteriomente': { 'required': 'Ingresa su Mascotas_anteriomente',},
-        'estado_mascotas_anteriores': { 'required': 'Ingresa su Estado_mascotas_anteriores',},
-        'visita_periodica_domicilio': { 'required': 'Ingresa su Visita_periodica_domicilio',},
+        'nombre': { 'required': 'Ingresa su nombre', },
+        'cedula_identidad': { 'required': 'Ingresa su cedula_identidad', },
+        'departamento': { 'required': 'Ingresa su Departamento', },
+        'provincia': { 'required': 'Ingresa su Provincia', },
+        'direccion': { 'required': 'Ingresa su Direccion', },
+        'ocupacion': { 'required': 'Ingresa su Ocupacion', },
+        'estado_civil': { 'required': 'Ingresa su Estado_civil', },
+        'estado_solicitud': { 'required': 'Ingresa su Estado_solicitud', },
+        'razon_adopcion': { 'required': 'Ingresa su Razon_adopcion', },
+        'mascotas_actuales': { 'required': 'Ingresa su Mascotas_actuales', },
+        'razon_mascotas_esterilizadas': { 'required': 'Ingresa su Razon_mascotas_esterilizadas', },
+        'mascotas_anteriomente': { 'required': 'Ingresa su Mascotas_anteriomente', },
+        'estado_mascotas_anteriores': { 'required': 'Ingresa su Estado_mascotas_anteriores', },
+        'visita_periodica_domicilio': { 'required': 'Ingresa su Visita_periodica_domicilio', },
     };
-
-	constructor(
-		private activatedRoute: ActivatedRoute,
-        private adoptionServ: AdoptionService,
-        private router: Router,
-        private fb: FormBuilder,
-	) { };
+    // tslint:disable-next-line:max-line-length
+    constructor(private activatedRoute: ActivatedRoute, private adoptionServ: AdoptionService, private router: Router, private fb: FormBuilder) { }
 
     ngOnInit() {
         this.buildForm();
-        //this.petServ.getAll();
     }
 
     buildForm() {
@@ -92,7 +83,6 @@ export class CreateComponent implements OnInit {
            this.adoptionServ.add(this.adoptionRequestForm.value).subscribe(res => {
                 this.router.navigate(['/auth/adoption_requests/list']);
             });
-            //this.notificationService.success(':: Submitted successfully');
         }
     }
 }

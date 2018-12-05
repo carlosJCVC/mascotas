@@ -31,9 +31,11 @@ export class PetListComponent implements OnInit {
       this.pets = response;
     });
   }
+
   goToLogin() {
     this.router.navigate(['login']);
   }
+
   swipeSearch() {
     this.searchOpen = !this.searchOpen;
   }
