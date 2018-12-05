@@ -35,7 +35,10 @@ export class IndexComponent implements OnInit {
     @Output() dup = new EventEmitter();
 
     searchKey: string;
+    searchText:string;
 
+
+    
     constructor(
         public petServ: PetService,
         private router: Router,

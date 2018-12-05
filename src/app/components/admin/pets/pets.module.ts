@@ -42,6 +42,9 @@ import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { PetService } from './pet.service';
 
+import { FilterPipePets } from './pipes/filterpets.pipe';
+
+
 export function highlightJsFactory(): any {
     hljs.registerLanguage('typescript', hljsTypescript);
     return hljs;
@@ -89,6 +92,7 @@ export function highlightJsFactory(): any {
         CreateComponent,
         EditComponent,
         ViewComponent,
+        FilterPipePets,
     ],
 
     exports: [
