@@ -15,7 +15,6 @@ export class PetService {
 
     constructor(public http: HttpClient) {
       // this.url = environment.petsAPI + '/api/mascotas';
-      // this.url = environment.petsAPIazure + '/api/mascotas';
       this.url = environment.petsAPIazure + '/api/mascotas';
 
     }
@@ -43,7 +42,6 @@ export class PetService {
         this.url += `&edadmin=${edad[0]}`;
         this.url += `&edadmax=${edad[1]}`;
       }
-      console.log(this.url);
       return this.http.get(this.url);
     }
 

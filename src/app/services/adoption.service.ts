@@ -18,9 +18,14 @@ export class AdoptionService {
         return this.http.post(this.url, data);
     }
 
-    getAll() {
-        console.log(this.url);
-        return this.http.get(this.url);
+    getAll(estado?: string) {
+        let url: string;
+        url = this.url;
+        if (estado && estado !== '') {
+            url += '?estado=' + estado;
+
+        }
+        return this.http.get(url);
     }
 
     getOne(id) {

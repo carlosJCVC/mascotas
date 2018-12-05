@@ -1,65 +1,27 @@
 <mat-card class="example-card">
   <h2>Solicitud de Adopcion</h2>
-  <mat-card-subtitle>
-    <strong>Nombre: </strong> {{adoptionRequest.nombre}}
-  </mat-card-subtitle>
+  <mat-card-content>
+  <mat-card-subtitle><strong>ID Mascota Solicitada: </strong> {{adoptionRequest.idMascota}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Nombre: </strong> {{adoptionRequest.nombre}}</mat-card-subtitle>
   <mat-card-subtitle><strong>Ci: </strong>{{adoptionRequest.cedulaIdentidad}}</mat-card-subtitle>
   <mat-card-subtitle><strong>Correo: </strong>{{adoptionRequest.correo}}</mat-card-subtitle>
-  <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.Direccion}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle>
-    <strong>Provincia: </strong>
-  </mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.provincia}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.direccion}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle><strong>Estado Civil: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.esta_civil}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle><strong>Mascota Actual: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.mac_act}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle><strong>Mascota Este: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.masc_este}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle><strong>Mascota Ante: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.masc_ante}}
-    </p>
-  </mat-card-content>
-  <mat-card-subtitle><strong>Mascota Visita: </strong></mat-card-subtitle>
-  <mat-card-content>
-    <p>
-      {{adoptionRequest.masc_visita}}
-    </p>
+  <mat-card-subtitle><strong>Departamento: </strong>{{adoptionRequest.departamento}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Provincia: </strong>{{adoptionRequest.provincia}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Direccion: </strong>{{adoptionRequest.direccion}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Ocupacion: </strong>{{adoptionRequest.ocupacion}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Estado Civil: </strong>{{adoptionRequest.estadoCivil}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Razon Adopcion: </strong>{{adoptionRequest.razonAdopcion}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Mascotas Actuales: </strong>{{adoptionRequest.mascotasActuales}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Mascotas Esterilizadas: </strong>{{adoptionRequest.razonMascotasEsterilizadas}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Mascotas Anteriores: </strong>{{adoptionRequest.mascotasAnteriormente}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Estado Mascotas Anteriores: </strong>{{adoptionRequest.estadoMascotasAnteriores}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Acepta una Visita Periodica a Domicilio: </strong>{{adoptionRequest.visitaPeriodicaDomicilio}}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-actions>
 
-    <button mat-raised-button color="accent" (click)="onSubmit()">Aceptar</button>
+    <button mat-raised-button color="primary" (click)="awnswerAdoptionRequest('aceptada')">Aceptar</button>
     <br><br>
 
-    <button mat-raised-button color="" (click)="onCancel()">Rechazars</button>
+    <button mat-raised-button color="" (click)="awnswerAdoptionRequest('rechazada')">Rechazar</button>
   </mat-card-actions>
 </mat-card>

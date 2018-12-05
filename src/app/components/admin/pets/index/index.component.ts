@@ -1,6 +1,6 @@
 import { Component, ViewChild,  OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { ResponsiveTableHelpers } from './helpers.data';
-import { PetService } from '../pet.service';
+import { PetService } from '../../../../services/pet.service';
 import {
     MatPaginator,
     MatTableDataSource,

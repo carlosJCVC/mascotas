@@ -1,7 +1,6 @@
 import { Component, ViewChild,  OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { ResponsiveTableHelpers } from './helpers.data';
-import { AdoptionService } from '../services/adoption.service';
-import { MatDialogConfig, MatDialog, MatSort, MatPaginator, MatTableDataSource, MatIconModule } from '@angular/material';
+import { AdoptionService } from '../../../../services/adoption.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,7 +23,7 @@ export class IndexAdoptionComponent implements OnInit {
     }
 
     getRows() {
-        this.adoptionServ.getAll().subscribe(
+        this.adoptionServ.getAll('creada').subscribe(
             data => {
                 const array = Object.keys(data).map(function(key, index) {
                     return {
@@ -43,7 +42,7 @@ export class IndexAdoptionComponent implements OnInit {
 
     next(event) {
         this.rows = [];
-        this.adoptionServ.getAll().subscribe(
+        this.adoptionServ.getAll('creada').subscribe(
             data => {
                 const array = Object.keys(data).map(function(key, index) {
                     return {
