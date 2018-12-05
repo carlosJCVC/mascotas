@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 //import { MatDialogRef } from '@angular/material';
-import { PetService } from '../pet.service';
+import { PetService } from '../../../../services/pet.service';
 //import { NotificationService } from '../../../../services/notification.service';
 
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-create-pet",
-  templateUrl: "./create.component.html",
-  styleUrls: ["./create.component.scss"]
+  selector: 'app-create-pet',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
 
 export class CreateComponent implements OnInit{
@@ -117,8 +117,8 @@ export class CreateComponent implements OnInit{
     }
 
     onSelectFile(event) {
-        var element = document.getElementById("preview");
-        element.classList.remove("preview_img");
+        var element = document.getElementById('preview');
+        element.classList.remove('preview_img');
 
         if (event.target.files && event.target.files[0]) {
           var reader = new FileReader();

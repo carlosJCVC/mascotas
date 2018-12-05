@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import * as _ from 'lodash';
-import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 
@@ -14,8 +11,7 @@ export class AdoptionService {
     url: string;
 
     constructor(public http: HttpClient) {
-        this.url = environment.petsAPIlaravel + '/api/adoption_applications';
-        //this.url = environment.petsAPIazure + '/api/adoption';
+        this.url = environment.petsAPIazure + '/api/solicitudAdopcions';
     }
 
     add(data: any) {
