@@ -27,7 +27,7 @@ export class UserMenuComponent implements OnInit {
     }
 
 
-    constructor(public router: Router ,private elementRef: ElementRef, public authService: AuthenticationService) {
+    constructor(public router: Router , private elementRef: ElementRef, public authService: AuthenticationService) {
         this.isOpen = false;
     }
 

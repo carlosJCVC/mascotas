@@ -1,10 +1,7 @@
 <div class="form" class="petForm">
-
-    <mat-card>
-        <mat-card-content>
-            <div style="text-align:center">
+        <div style="text-align:center">
                 <h2>
-                    Llenar formulario de solicitud de adopcion
+                    Solicitud de Adopcion
                 </h2>
             </div>
             <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="adoptionRequestForm">
@@ -91,9 +88,8 @@
                     <input formControlName="VisitaPeriodicaDomicilio" matInput class="input" placeholder="Está de acuerdo que se realicese una visaita periódica a su domicilio para ver cómo se encuentra la mascota adoptada? ?" required>
                     <mat-error>Este campo es requerido.</mat-error>
                 </mat-form-field>
-                
-                <button mat-raised-button color="primary" type="submit" [disabled]="!adoptionRequestForm.valid" (click)="create()">Guardar</button>
+                <br>
+                <button mat-raised-button color="primary" [routerLink]="['']">Atras</button>             
+                <button mat-raised-button color="primary"   [disabled]="!adoptionRequestForm.valid" (click)="create()">Mandar Solicitud</button>
             </form>
-        </mat-card-content>
-    </mat-card>
 </div>

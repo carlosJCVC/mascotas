@@ -1,18 +1,14 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{row?.nombre}}</mat-card-title>
-    <mat-card-subtitle>{{row?.id}}</mat-card-subtitle>
-  </mat-card-header>
-
+  <h2>Solicitud de Adopcion</h2>
   <mat-card-subtitle>
-    <strong>Nombre: </strong> {{row?.nombre}}
+    <strong>Nombre: </strong> {{adoptionRequest.nombre}}
   </mat-card-subtitle>
-  <mat-card-subtitle><strong>Ci: </strong>{{row?.cedula_identidad}}</mat-card-subtitle>
-  <mat-card-subtitle><strong>Correo: </strong>{{row?.correo_electronico}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Ci: </strong>{{adoptionRequest.cedulaIdentidad}}</mat-card-subtitle>
+  <mat-card-subtitle><strong>Correo: </strong>{{adoptionRequest.correo}}</mat-card-subtitle>
   <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.direccion}}
+      {{adoptionRequest.Direccion}}
     </p>
   </mat-card-content>
   <mat-card-subtitle>
@@ -20,43 +16,43 @@
   </mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.provincia}}
+      {{adoptionRequest.provincia}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Direccion: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.direccion}}
+      {{adoptionRequest.direccion}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Estado Civil: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.esta_civil}}
+      {{adoptionRequest.esta_civil}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Actual: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.mac_act}}
+      {{adoptionRequest.mac_act}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Este: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.masc_este}}
+      {{adoptionRequest.masc_este}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Ante: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.masc_ante}}
+      {{adoptionRequest.masc_ante}}
     </p>
   </mat-card-content>
   <mat-card-subtitle><strong>Mascota Visita: </strong></mat-card-subtitle>
   <mat-card-content>
     <p>
-      {{row?.masc_visita}}
+      {{adoptionRequest.masc_visita}}
     </p>
   </mat-card-content>
   <mat-card-actions>

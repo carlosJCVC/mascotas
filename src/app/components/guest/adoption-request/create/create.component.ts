@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdoptionService } from '../services/adoption.service';
+import { AdoptionService } from '../../../../services/adoption.service';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -31,13 +31,13 @@ export class CreateComponent implements OnInit {
             'MascotasAnteriormente': ['', [ Validators.required ]],
             'EstadoMascotasAnteriores': ['', [ Validators.required ]],
             'VisitaPeriodicaDomicilio': ['', [ Validators.required ]],
-            'IdMascota': ['', []],
+            'IdMascota': [this.activatedRoute.snapshot.paramMap.get('id'), []],
         });
     }
 
     create() {
         this.adoptionServ.add(this.adoptionRequestForm.value).subscribe(res => {
-            this.router.navigate(['/auth/adoption_requests/list']);
+            this.router.navigate(['']);
         });
     }
 }

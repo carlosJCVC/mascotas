@@ -31,12 +31,6 @@ export const menus = [
                 'link': 'adoption_requests/list',
                 'open': false,
             },
-            {
-                'name': 'Crear solicitud',
-                'icon': 'add_circle',
-                'link': 'adoption_requests/create',
-                'open': false,
-            }
         ]
     }
 ];

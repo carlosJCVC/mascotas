@@ -15,6 +15,6 @@ export class PetViewComponent implements OnInit {
   ngOnInit() {
   }
   sendToPetRequest() {
-    this.router.navigate(['auth']);
+    this.router.navigate(['adoption-request/' + this.mascota.id]);
   }
 }

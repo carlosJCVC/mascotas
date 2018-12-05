@@ -23,7 +23,6 @@
             		<tr *ngFor="let row of rows|filter:searchText let i=index">
             			<td [attr.data-label]="th.name" *ngFor="let th of helpers?.header" >
             				<span *ngIf="th.key!='action'">
-            					<!-- {{row[th.key]}} -->
 
             					{{row[th.key]}}
                                 <mat-chip  (click)="findDuplicates(row)"

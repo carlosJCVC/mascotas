@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
-//import { MatDialogRef } from '@angular/material';
 import { PetService } from '../../../../services/pet.service';
-//import { NotificationService } from '../../../../services/notification.service';
-=======
-import { Component, OnInit } from "@angular/core";
-import { PetService } from '../pet.service';
->>>>>>> a63d13ce47586174ae0dc4103e4ff1149e51eac7
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
