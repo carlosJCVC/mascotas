@@ -38,9 +38,7 @@ import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
 import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { IndexAdoptionComponent } from './index/indexAdoption.component';
 import { CreateComponent } from './create/create.component';
-//import { EditComponent } from './edit/edit.component';
 import { ViewAdoptionComponent } from './view/viewAdoption.component';
-//import { PetService } from './pet.service';
 
 import { FilterPipe } from './pipes/filter.pipe';
 
@@ -90,7 +88,6 @@ export function highlightJsFactory(): any {
     declarations: [
         IndexAdoptionComponent,
         CreateComponent,
-        //EditComponent,
         ViewAdoptionComponent,
         FilterPipe,
     ],
@@ -99,7 +96,6 @@ export function highlightJsFactory(): any {
     ],
 
     providers: [
-      //PetService,
       DatePipe
   ],
 })

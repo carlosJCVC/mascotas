@@ -2,17 +2,10 @@ import { Component, ViewChild,  OnInit, ViewEncapsulation, Input, Output, EventE
 import { ResponsiveTableHelpers } from './helpers.data';
 import { PetService } from '../pet.service';
 import {
-    MatDialogConfig,
-    MatDialog,
-    MatSort,
     MatPaginator,
     MatTableDataSource,
-    MatIconModule
 } from '@angular/material';
 import { Router } from '@angular/router';
-
-// import { NotificationService } from '../../../../services/notification.service';
-// import { DialogService } from '../../../../services/dialog.service';
 
 @Component({
   selector: 'app-index',
@@ -138,18 +131,9 @@ export class IndexComponent implements OnInit {
             this.petServ.delete(id).subscribe(
                 res => {
                     location.reload();
-                    //this.router.navigate(['/auth/pets/list']);
                 }
             );
-          //this.notificationService.warn('! Deleted successfully');
         }
-        // this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
-        //     .afterClosed().subscribe(res =>{
-        //     if(res){
-        //         this.petServ.delete($key);
-        //         this.notificationService.warn('! Deleted successfully');
-        //     }
-        // });
     }
 
     sortData(event) {

@@ -1,18 +1,7 @@
 import { Component, ViewChild, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { ResponsiveTableHelpers } from '../index/helpers.data';
 import { AdoptionService } from '../services/adoption.service';
-import {
-    MatDialogConfig,
-    MatDialog,
-    MatSort,
-    MatPaginator,
-    MatTableDataSource,
-    MatIconModule
-} from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
-
-// import { NotificationService } from '../../../../services/notification.service';
-// import { DialogService } from '../../../../services/dialog.service';
 
 @Component({
     selector: 'app-view-adoption',
@@ -21,17 +10,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class ViewAdoptionComponent implements OnInit {
-    helpers = ResponsiveTableHelpers;
+
+  helpers = ResponsiveTableHelpers;
     pageLength = 0;
     searchKey: string;
     private id;
     public row;
+
     constructor(
         public adoptionServ: AdoptionService,
         private router: Router,
         private activatedRoute: ActivatedRoute,
 
     ) { }
+
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
@@ -40,21 +32,11 @@ export class ViewAdoptionComponent implements OnInit {
     }
 
     getRow(id) {
-        // this.row = this.helpers.rows.find(x => x.id === id);
-        // console.log(this.row);
-        
-        // this.adoptionServ.getOne(id).subscribe(one = > {
-        //     console.log(one);
-        //     this.row=one;
-        // });
-
-        this.adoptionServ.getOne(id).subscribe(one=>{
-            alert();
-            let adoption=one;
-            this.row=adoption;
-        })
-
+        this.adoptionServ.getOne(id).subscribe(response => {
+            this.row = response;
+        });
     }
+
     onSubmit() {
 
     }

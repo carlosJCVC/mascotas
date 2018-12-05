@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-//import { MatDialogRef } from '@angular/material';
 import { PetService } from '../pet.service';
-//import { NotificationService } from '../../../../services/notification.service';
 
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -26,6 +24,7 @@ export class CreateComponent implements OnInit{
         'enfermedades': '',
         'descripcion': '',
     };
+
     validationMessages = {
         'nombre': {
             'required': 'Ingresa un nombre de la mascota',
@@ -62,7 +61,6 @@ export class CreateComponent implements OnInit{
 
     ngOnInit() {
         this.buildForm();
-        //this.petServ.getAll();
     }
 
     buildForm() {
@@ -86,7 +84,6 @@ export class CreateComponent implements OnInit{
            this.petServ.add(this.petForm.value).subscribe(res => {
                 this.router.navigate(['/auth/pets/list']);
             });
-            //this.notificationService.success(':: Submitted successfully');
         }
     }
 
@@ -101,19 +98,7 @@ export class CreateComponent implements OnInit{
     }*/
 
     onSubmit() {
-        // alert();
-        // if (this.petForm.valid) {
-        //     if (!this.petServ.form.get('$key').value){
-        //         this.petForm.value.imagen = this.url;
-        //         this.petServ.add(this.petForm.value);
-        //     }
-        //     else
-        //         this.petServ.edit(1, this.petServ.form.value);
-        //     this.petServ.form.reset();
-        //     this.petServ.initializeFormGroup();
-        //     this.notificationService.success(':: Submitted successfully');
-        //     this.onClose();
-        // }
+
     }
 
     onSelectFile(event) {

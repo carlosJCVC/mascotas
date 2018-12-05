@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-//import { MatDialogRef } from '@angular/material';
 import { AdoptionService } from '../services/adoption.service';
-//import { NotificationService } from '../../../../services/notification.service';
 
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -59,7 +57,6 @@ export class CreateComponent implements OnInit {
 
     ngOnInit() {
         this.buildForm();
-        //this.petServ.getAll();
     }
 
     buildForm() {
@@ -92,7 +89,6 @@ export class CreateComponent implements OnInit {
            this.adoptionServ.add(this.adoptionRequestForm.value).subscribe(res => {
                 this.router.navigate(['/auth/adoption_requests/list']);
             });
-            //this.notificationService.success(':: Submitted successfully');
         }
     }
 }

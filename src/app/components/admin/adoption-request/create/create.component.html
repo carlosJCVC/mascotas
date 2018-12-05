@@ -1,7 +1,7 @@
 <div class="form" class="petForm">
     <div style="text-align:center">
       <h2>
-        Lenar formulario de solicitud de adopcion
+        Llenar formulario de solicitud de adopcion
       </h2>
     </div>
 
@@ -25,7 +25,7 @@
                     {{ formErrors.cedula_identidad }}
                 </div>
 
-				<mat-form-field>
+				        <mat-form-field>
                     <mat-select formControlName="departamento" placeholder="Departamento">
                         <mat-option value="CB">Cochabamba</mat-option>
                         <mat-option value="LP">LA PAZ</mat-option>
@@ -55,7 +55,7 @@
                     {{ formErrors.direccion }}
                 </div>
 
-				<mat-form-field>
+        				<mat-form-field>
                     <input formControlName="ocupacion" matInput class="input" placeholder="Ocupacion" required>
                     <mat-error>Este campo es requerido.</mat-error>
                 </mat-form-field>
@@ -63,7 +63,7 @@
                     {{ formErrors.ocupacion }}
                 </div>
 
-				<mat-form-field>
+				        <mat-form-field>
                     <mat-select formControlName="estado_civil" placeholder="Estado civil">
                         <mat-option value="soltero">SOLTERO/A</mat-option>
                         <mat-option value="casado">CASADO/A</mat-option>
@@ -80,7 +80,7 @@
                     {{ formErrors.razon_adopcion }}
                 </div>
 
-				<mat-form-field>
+				        <mat-form-field>
                     <input formControlName="mascotas_actuales" matInput class="input" placeholder="Actualmente tiene otras mascotas ? Cuales ?" required>
                     <mat-error>Este campo es requerido.</mat-error>
                 </mat-form-field>
@@ -112,7 +112,7 @@
                     {{ formErrors.estado_mascotas_anteriores }}
                 </div>
 
-				<mat-form-field>
+				        <mat-form-field>
                     <input formControlName="visita_periodica_domicilio" matInput class="input" placeholder="Está de acuerdo que se realicese una visaita periódica a su domicilio para ver cómo se encuentra la mascota adoptada? ?" required>
                     <mat-error>Este campo es requerido.</mat-error>
                 </mat-form-field>
@@ -124,5 +124,4 @@
             </form>
         </mat-card-content>
     </mat-card>
-
 </div>
