@@ -6,7 +6,7 @@ import {
     animate,
     transition,
     query,
-} from '@angular/animations'
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +17,6 @@ export class AppComponent {
   title = 'mascotas';
 
   getRouteAnimation(outlet) {
-      return outlet.activatedRouteData.animation
+      return outlet.activatedRouteData.animation;
   }
 }

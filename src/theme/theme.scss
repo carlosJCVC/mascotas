@@ -6,6 +6,8 @@
 @import '../app/components/admin/dashboard-widget/dashcard/dashcard.component.scss';
 @import '../app/components/admin/dashboard-widget/profile-card/profile-card.component.scss';
 
+@include mat-core();
+
 $mat-light-theme-background: (
         status-bar: map_get($mat-grey, 300),
         app-bar:    map_get($mat-grey, 100),
@@ -22,8 +24,6 @@ $mat-light-theme-background: (
         unselected-chip: map_get($mat-grey, 300),
         disabled-list-option: map_get($mat-grey, 200),
 );
-
-@include mat-core();
 
 $primary : $mat-indigo;
 $accent  : $mat-orange;
@@ -65,8 +65,6 @@ cdk-profile-card{
 
 @include angular-material-theme($cdk-theme);
 @include auth($cdk-theme);
-//@include round-progressbar($cdk-theme);
-//@include sales-list($cdk-theme);
 
 html {
   height:100%;

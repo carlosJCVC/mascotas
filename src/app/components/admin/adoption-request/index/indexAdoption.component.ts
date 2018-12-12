@@ -13,8 +13,6 @@ export class IndexAdoptionComponent implements OnInit {
     rows: Array<any> = [];
     helpers = ResponsiveTableHelpers;
     pageLength = 0;
-    searchKey: string;
-    searchText: string;
 
     constructor(public adoptionServ: AdoptionService, private router: Router ) { }
 
