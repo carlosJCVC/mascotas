@@ -23,7 +23,7 @@
 
 				    <mat-form-field>
                     <mat-select formControlName="Departamento" placeholder="Departamento">
-                        <mat-option value="CB">Cochabamba</mat-option>
+                        <mat-option value="CB">COCHABAMBA</mat-option>
                         <mat-option value="LP">LA PAZ</mat-option>
                         <mat-option value="OR">ORURO</mat-option>
                         <mat-option value="PT">POTOSI</mat-option>
@@ -89,7 +89,7 @@
                     <mat-error>Este campo es requerido.</mat-error>
                 </mat-form-field>
                 <br>
-                <button mat-raised-button color="primary" [routerLink]="['']">Atras</button>             
-                <button mat-raised-button color="primary"   [disabled]="!adoptionRequestForm.valid" (click)="create()">Mandar Solicitud</button>
+                <button mat-raised-button color="primary"  type="button" [routerLink]="['']">Atras</button>             
+                <button mat-raised-button color="primary"  type="submit" [disabled]="!adoptionRequestForm.valid" (click)="create()">Mandar Solicitud</button>
             </form>
 </div>
