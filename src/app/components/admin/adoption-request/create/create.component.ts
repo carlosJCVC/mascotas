@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdoptionService } from '../services/adoption.service';
+//import { AdoptionService } from '../services/adoption.service';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,7 +13,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CreateComponent implements OnInit {
     adoptionRequestForm: FormGroup;
     // tslint:disable-next-line:max-line-length
-    constructor(private activatedRoute: ActivatedRoute, private adoptionServ: AdoptionService, private router: Router, private fb: FormBuilder) { }
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
 
     ngOnInit() {
         this.adoptionRequestForm = this.fb.group({
@@ -36,8 +36,5 @@ export class CreateComponent implements OnInit {
     }
 
     create() {
-        this.adoptionServ.add(this.adoptionRequestForm.value).subscribe(res => {
-            this.router.navigate(['/auth/adoption_requests/list']);
-        });
     }
 }

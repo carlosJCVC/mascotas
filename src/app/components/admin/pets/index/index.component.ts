@@ -1,10 +1,7 @@
-import { Component, ViewChild,  OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild,  OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ResponsiveTableHelpers } from './helpers.data';
 import { PetService } from '../../../../services/pet.service';
-import {
-    MatPaginator,
-    MatTableDataSource,
-} from '@angular/material';
+import { MatPaginator } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,11 +13,6 @@ import { Router } from '@angular/router';
 export class IndexComponent implements OnInit {
 
     rows: Array<any> = [];
-    showResponsiveTableCode;
-    //@ViewChild( MatSort ) sort: MatSort;
-    displayedColumns: string[] = ['id', 'nombre', 'raza', 'edad', 'procedencia', 'sexo', 'especie', 'estado', 'created_at', 'actions'];
-    dataSource: MatTableDataSource<any>
-    //@ViewChild(MatSort) sort: MatSort;
     @ViewChild( MatPaginator ) paginator: MatPaginator;
     pageLength = 0;
     pageSize = 5;
@@ -31,15 +23,10 @@ export class IndexComponent implements OnInit {
     @Output() delete = new EventEmitter();
     @Output() view = new EventEmitter();
     @Output() page = new EventEmitter();
-    //@Output() sort = new EventEmitter();
     @Output() dup = new EventEmitter();
+    searchText: string;
 
-    searchKey: string;
-
-    constructor(
-        public petServ: PetService,
-        private router: Router,
-    ) { }
+    constructor( public petServ: PetService, private router: Router ) { }
 
     ngOnInit(){
         this.getRows();
@@ -56,7 +43,7 @@ export class IndexComponent implements OnInit {
     getRows() {
         this.petServ.getAll().subscribe(
             data => {
-                let array = Object.keys(data).map(function(key, index) {
+                const array = Object.keys(data).map(function(key, index) {
                     return {
                         id: data[key].id,
                         nombre: data[key].nombre,
@@ -79,7 +66,7 @@ export class IndexComponent implements OnInit {
         this.rows = [];
         this.petServ.getAll().subscribe(
             data => {
-                let array = Object.keys(data).map(function(key, index) {
+                const array = Object.keys(data).map(function(key, index) {
                     return {
                         id: data[key].id,
                         nombre: data[key].nombre,
@@ -97,33 +84,11 @@ export class IndexComponent implements OnInit {
                     event.pageSize = array.length;
                 }
 
-                for (var i= 1 * event.pageIndex * event.pageSize; i< event.pageSize+event.pageIndex*event.pageSize ;i++) {
-                    this.rows = [...this.rows,array[i]];        
+                for ( let i = 1 * event.pageIndex * event.pageSize; i < event.pageSize + event.pageIndex * event.pageSize ; i++) {
+                    this.rows = [...this.rows, array[i]];
                 }
             }
         );
-    }
-
-    onSearchClear() {
-        this.searchKey = "";
-        this.applyFilter();
-    }
-    
-    applyFilter() {
-        var filter, table, tr, td, i;
-        filter = this.searchKey.trim().toUpperCase();
-        table = document.getElementById("tablePets");
-        tr = table.getElementsByTagName("tr");
-        for (i = 1; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-              if (td.innerText.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-        }
     }
 
     onDelete(id) {
@@ -137,11 +102,10 @@ export class IndexComponent implements OnInit {
     }
 
     sortData(event) {
-        if(event.active == "id" ){
-            if(event.direction == 'asc' || event.direction != ""){
+        if ( event.active == 'id' ) {
+            if (event.direction == 'asc' || event.direction != ''){
                 this.rows.reverse();
-            }
-            else{
+            } else {
                 this.rows.sort();
             }
         }

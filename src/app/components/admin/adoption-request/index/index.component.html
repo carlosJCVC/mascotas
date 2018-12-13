@@ -6,9 +6,10 @@
 
         <div class="table-container">
             <div class="table-container">
-                <div class="search-div header-search">
+
+              <div class="search-div header-search">
                     <mat-form-field style="color: black; width: 100%;">
-                        <input matInput  [(ngModel)]="searchText" placeholder="Buscar por Nombre, Ci, Correo" autocomplete="off" >
+                        <input matInput placeholder="Buscar por Nombre, Ci, Correo" autocomplete="off" >
                     </mat-form-field>
                 </div>
             
@@ -40,21 +41,23 @@
             				</span>
 
             				<span *ngIf="th.key=='action'">
-                                <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Acciones</button>
-                                <mat-menu #menu="matMenu">
-                                  <button mat-menu-item (click)="viewAdoptionRequest(row.id)">Ver</button>
-                                  <button mat-menu-item (click)="onDelete(row.id)">Eliminar</button>
-                                </mat-menu>
+                        <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Acciones</button>
+                        <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="viewAdoptionRequest(row.id)">Ver</button>
+                        <button mat-menu-item (click)="onDelete(row.id)">Eliminar</button>
+                        </mat-menu>
                     </span>
 
             			</td>
             		</tr>
-                    <tr *ngIf="rows?.length==0 && status==false">
-                        <td [colSpan]="header.length" style="text-align: center;">
-                            No records found
-                        </td>
-                    </tr>
-            	</tbody>
+
+                <tr *ngIf="rows?.length==0 && status==false">
+                    <td [colSpan]="header.length" style="text-align: center;">
+                        No hay solicitudes de adopción
+                    </td>
+                </tr>
+
+              </tbody>
 
                 <thead *matHeaderRowDef="displayedColumns"></thead>
                 <tr *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { Router, ActivatedRoute } from '@angular/router';
-import { PetService } from '../pet.service';
+import { PetService } from '../../../../services/pet.service';
 
 @Component({
   selector: 'app-edit-pet',
