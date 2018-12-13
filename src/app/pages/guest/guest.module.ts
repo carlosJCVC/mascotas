@@ -5,7 +5,7 @@ import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, Mat
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PetListComponent } from './pet-list/pet-list.component';
-import { PetViewComponent } from './pet-view/pet-view.component';
+import { PetViewComponent } from '../../components/pet-view/pet-view.component';
 import { PetService } from 'src/app/services/pet.service';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
