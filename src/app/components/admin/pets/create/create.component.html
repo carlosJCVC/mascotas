@@ -1,77 +1,78 @@
 <mat-card>
-        <h2>
-            Registrar Mascota
-        </h2>
-        <mat-card-content>
-            <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="petForm">
+  <h2>
+    Registrar Mascota
+  </h2>
+  <mat-card-content>
+    <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="petForm">
 
-                <div class="preview_img_pet">
-                    <img [src]="url" height="200" width="200" class="preview_img" id="preview"> <br/>
-                    <input type='file' (change)="onSelectFile($event)">
-                </div>
+      <div class="preview_img_pet">
+        <img [src]="url" height="200" width="200" class="preview_img" id="preview"> <br/>
+        <input type='file' (change)="onSelectFile($event)">
+      </div>
 
-                <mat-form-field>
-                    <input formControlName="nombre" matInput class="input" placeholder="Nombre mascota" required>
-                    <mat-error>El campo nombre es requerido.</mat-error>
-                </mat-form-field>
-                <div *ngIf="formErrors.nombre" class="help is-danger">
-                    {{ formErrors.nombre }}
-                </div>
+      <mat-form-field>
+        <input formControlName="nombre" matInput class="input" placeholder="Nombre mascota" required>
+        <mat-error>El campo nombre es requerido.</mat-error>
+      </mat-form-field>
+      <div *ngIf="formErrors.nombre" class="help is-danger">
+        {{ formErrors.nombre }}
+      </div>
 
-                <mat-form-field>
-                    <input formControlName="raza" matInput class="input" placeholder="Raza" required>
-                    <mat-error>El campo raza es requerido.</mat-error>
-                </mat-form-field>
-                <div *ngIf="formErrors.raza" class="help is-danger">
-                    {{ formErrors.raza }}
-                </div>
+      <mat-form-field>
+        <input formControlName="raza" matInput class="input" placeholder="Raza" required>
+        <mat-error>El campo raza es requerido.</mat-error>
+      </mat-form-field>
+      <div *ngIf="formErrors.raza" class="help is-danger">
+        {{ formErrors.raza }}
+      </div>
 
-                <mat-form-field>
-                    <mat-select formControlName="especie" placeholder="Especie">
-                      <mat-option>None</mat-option>
-                      <mat-option value="perro">PERRO</mat-option>
-                      <mat-option value="gato">GATO</mat-option>
-                    </mat-select>
-                </mat-form-field>
+      <mat-form-field>
+        <mat-select formControlName="especie" placeholder="Especie">
+          <mat-option>None</mat-option>
+          <mat-option value="perro">PERRO</mat-option>
+          <mat-option value="gato">GATO</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-                <mat-form-field>
-                    <input formControlName="edad" matInput placeholder="Edad*">
-                    <mat-error>Edad de mascota es requerido.</mat-error>
-                </mat-form-field>
-                <div *ngIf="formErrors.edad" class="help is-danger">
-                    {{ formErrors.edad }}
-                </div>
+      <mat-form-field>
+        <input formControlName="edad" matInput placeholder="Edad*">
+        <mat-error>Edad de mascota es requerido.</mat-error>
+      </mat-form-field>
+      <div *ngIf="formErrors.edad" class="help is-danger">
+        {{ formErrors.edad }}
+      </div>
 
-                <mat-form-field>
-                    <mat-select formControlName="sexo" placeholder="Sexo">
-                    <mat-option>None</mat-option>
-                        <mat-option value="macho">MACHO</mat-option>
-                        <mat-option value="hembra">HEMBRA</mat-option>
-                    </mat-select>
-                </mat-form-field>
+      <mat-form-field>
+        <mat-select formControlName="sexo" placeholder="Sexo">
+          <mat-option>None</mat-option>
+          <mat-option value="macho">MACHO</mat-option>
+          <mat-option value="hembra">HEMBRA</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-                <mat-form-field>
-                    <input formControlName="procedencia" matInput placeholder="Procedencia*">
-                    <mat-error>Procedencia de la mascota es requerido.</mat-error>
-                </mat-form-field>
-                <div *ngIf="formErrors.procedencia" class="help is-danger">
-                    {{ formErrors.procedencia }}
-                </div>
+      <mat-form-field>
+        <input formControlName="procedencia" matInput placeholder="Procedencia*">
+        <mat-error>Procedencia de la mascota es requerido.</mat-error>
+      </mat-form-field>
+      <div *ngIf="formErrors.procedencia" class="help is-danger">
+        {{ formErrors.procedencia }}
+      </div>
 
-                <mat-form-field>
-                    <input formControlName="enfermedades" matInput placeholder="Enfermedades*">
-                    <mat-error>Enfermedades de la mascota es requerido.</mat-error>
-                </mat-form-field>
-                <div *ngIf="formErrors.enfermedades" class="help is-danger">
-                    {{ formErrors.enfermedades }}
-                </div>
+      <mat-form-field>
+        <input formControlName="enfermedades" matInput placeholder="Enfermedades*">
+        <mat-error>Enfermedades de la mascota es requerido.</mat-error>
+      </mat-form-field>
+      <div *ngIf="formErrors.enfermedades" class="help is-danger">
+        {{ formErrors.enfermedades }}
+      </div>
 
-                <mat-form-field>
-                    <input formControlName="descripcion" matInput placeholder="Descripcion*">
-                    <mat-error>Descripcion de la mascota es requerido.</mat-error>
-                </mat-form-field>
-                
-                <button mat-raised-button color="primary" type="submit" [disabled]="!petForm.valid" (click)="create()">Guardar</button>
-            </form>
-        </mat-card-content>
-    </mat-card>
+      <mat-form-field>
+        <input formControlName="descripcion" matInput placeholder="Descripcion*">
+        <mat-error>Descripcion de la mascota es requerido.</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!petForm.valid" (click)="create()">Guardar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
