@@ -45,6 +45,10 @@ export class PetService {
       return this.http.get(this.url);
     }
 
+    getAllMyPets(user_id){
+      return this.http.get(this.url + '/' + user_id);
+    }
+
     getOne(id) {
       return this.http.get(this.url + '/' + id);
     }

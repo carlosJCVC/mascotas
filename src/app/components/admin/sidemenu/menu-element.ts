@@ -32,5 +32,25 @@ export const menus = [
                 'open': false,
             },
         ]
+    },
+    {
+      'name': 'Clínicas Veterinarias',
+      'icon': 'pets',
+      'link': false,
+      'open': false,
+      'sub': [
+        {
+          'name': 'Lista de clinicas',
+          'icon': 'filter_list',
+          'link': 'clinics/list',
+          'open': false,
+        },
+        {
+          'name': 'Agregar Clínica',
+          'icon': 'add_circle',
+          'link': 'clinics/create',
+          'open': false,
+        }
+        ]
     }
 ];
