@@ -38,6 +38,8 @@ import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
 import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { IndexVeterinaryClinicsComponent } from './index/index-veterinary-clinics.component';
 import { CreateVeterinaryClinicsComponent } from './create/create.component';
+import { ViewVeterinaryClinicComponent } from './view/view-veterinary-clinic.component';
+import { PetService } from '../../../services/pet.service';
 
 export function highlightJsFactory(): any {
   hljs.registerLanguage('typescript', hljsTypescript);
@@ -84,6 +86,7 @@ export function highlightJsFactory(): any {
   declarations: [
     IndexVeterinaryClinicsComponent,
     CreateVeterinaryClinicsComponent,
+    ViewVeterinaryClinicComponent,
   ],
 
   exports: [
