@@ -40,8 +40,21 @@ export class IndexVeterinaryClinicsComponent implements OnInit {
     );
   }
 
-  viewPet(id) {
-    this.router.navigate(['/auth/pets/view/' , id]);
+  viewClinic(id) {
+    this.router.navigate(['/auth/clinics/view/' , id]);
   }
 
+  editClinic(id) {
+    this.router.navigate(['/auth/clinics/edit/' , id]);
+  }
+
+  onDelete(id) {
+    if(confirm('Estas seguro que deseas eliminar este registro ?')){
+      this.clinicServ.delete(id).subscribe(
+        res => {
+          this.router.navigate(['/auth/clinics/list']);
+        }
+      );
+    }
+  }
 }

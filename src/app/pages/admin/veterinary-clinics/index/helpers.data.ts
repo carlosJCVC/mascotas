@@ -11,11 +11,6 @@ export const ResponsiveTableHelpers = {
       order: 'asc'
     },
     {
-      name: 'Telefono',
-      key: 'telefono',
-      order: 'asc'
-    },
-    {
       name: 'Direccion',
       key: 'direccion',
       order: 'asc'

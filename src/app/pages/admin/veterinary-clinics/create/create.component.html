@@ -1,1 +1,48 @@
-Hola
+<mat-card>
+  <h2>
+    Registrar Clínica Veterinaria
+  </h2>
+
+  <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="clinicForm">
+
+    <div *ngIf="existImage; else nothing;">
+      <img mat-card-sm-image class="image_preview" src="{{url}}">
+      <br>
+    </div>
+    <br>
+    <ng-template #nothing></ng-template>
+    <button mat-raised-button (click)="openInput()">
+      Escoga la imagen para subir
+    </button>
+    <input id="fileInput" hidden type="file" (change)="onSelectFile($event)">
+
+    <mat-form-field>
+      <input formControlName="Nombre" matInput class="input" placeholder="Nombre Clínica" required>
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="Direccion" matInput class="input" placeholder="Direccion Clínica" required>
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="Especialidades" matInput class="input" placeholder="Especialidades" required>
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="Horario" matInput class="input" placeholder="Horario" required>
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="Dias" matInput class="input" placeholder="Dias de Atencion" required>
+      <mat-error>Este campo es requerido.</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" [disabled]="!clinicForm.valid" (click)="onSubmit()">Enviar</button>
+    <br>
+    <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
+  </form>
+</mat-card>

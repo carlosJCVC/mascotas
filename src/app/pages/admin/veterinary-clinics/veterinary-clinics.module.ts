@@ -90,7 +90,6 @@ export function highlightJsFactory(): any {
   ],
 
   providers: [
-    //PetService,
     DatePipe
   ],
 })

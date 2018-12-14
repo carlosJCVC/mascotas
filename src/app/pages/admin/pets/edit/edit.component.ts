@@ -47,7 +47,7 @@ export class EditComponent implements OnInit {
                 this.pet_descripcion = this.pet.descripcion;
                 this.pet_sexo = this.pet.sexo;
                 this.pet_estado = this.pet.estado;
-                
+
                 this.url = this.pet.imagen;
                if (this.url === '') { this.existeImagen = false;  } else { this.existeImagen = true; }
 
@@ -71,10 +71,10 @@ export class EditComponent implements OnInit {
         this.petService.edit(this.id, this.mascota).subscribe(res => {
             // console.log(res);
             this.route.navigate(['/auth/pets/list']);
-            
+
         });
     }
-    
+
     onCancel() {
         window.history.back();
     }
