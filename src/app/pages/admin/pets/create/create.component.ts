@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ElementRef , ViewChild } from '@angular/core';
 import { PetService } from '../../../../services/pet.service';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -18,6 +18,7 @@ export class CreateComponent implements OnInit{
     petForm: FormGroup;
     url = '';
     urlPet: Observable<string>;
+    uploadPercent: Observable<number>;
     formErrors = {
         'nombre': '',
         'raza': '',
@@ -63,7 +64,7 @@ export class CreateComponent implements OnInit{
         private fb: FormBuilder,
         private storage: AngularFireStorage,
     ) {}
-
+    @ViewChild('imagePet') inputImagePet: ElementRef;
     ngOnInit() {
         this.buildForm();
     }
@@ -85,7 +86,8 @@ export class CreateComponent implements OnInit{
 
     create() {
        if (this.petForm.valid) {
-           this.petForm.value.imagen = this.urlPet;
+           console.log(this.inputImagePet.nativeElement.value);
+           this.petForm.value.imagen = this.inputImagePet.nativeElement.value;
            this.petServ.add(this.petForm.value).subscribe(res => {
                 this.router.navigate(['/auth/pets/list']);
             });
@@ -95,12 +97,6 @@ export class CreateComponent implements OnInit{
     onValueChanged(data?: any) {
 
     }
-
-    /*onClear() {
-        this.petServ.form.reset();
-        this.petServ.initializeFormGroup();
-        this.notificationService.success(':: Submitted successfully');
-    }*/
 
     onSubmit() {
 
@@ -123,6 +119,7 @@ export class CreateComponent implements OnInit{
         const filePath = `uploads/pet_${id}`;
         const ref = this.storage.ref(filePath);
         const task = this.storage.upload(filePath, file);
+        this.uploadPercent = task.percentageChanges();
         task.snapshotChanges().pipe( finalize(() => this.urlPet = ref.getDownloadURL())).subscribe();
     }
 }
