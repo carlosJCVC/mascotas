@@ -12,7 +12,6 @@ import { environment } from '../../environments/environment';
 export class PetService {
 
     url: string;
-
     constructor(public http: HttpClient) {
       // this.url = environment.petsAPI + '/api/mascotas';
       this.url = environment.petsAPIazure + '/api/mascotas';

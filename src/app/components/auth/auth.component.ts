@@ -9,7 +9,7 @@ import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 })
 
 export class AuthComponent implements OnInit {
-  @Input() isVisible : boolean = true;
+  @Input() isVisible: boolean = true;
   visibility = 'shown';
 
     sideNavOpened: boolean = true;

@@ -6,7 +6,15 @@ export const environment = {
   production: false,
   petsAPI: 'https://localhost:44307',
   petsAPIazure: 'https://petsapi20181214033302.azurewebsites.net',
-  petsAPIlaravel: 'http://bet.mascotasapi.com'
+  petsAPIlaravel: 'http://bet.mascotasapi.com',
+  firebaseConfig: {
+    apiKey: 'AIzaSyARsKD_vJmMNCPAii3niaXgvovob2XCFt0',
+    authDomain: 'pets-image-server.firebaseapp.com',
+    databaseURL: 'https://pets-image-server.firebaseio.com',
+    projectId: 'pets-image-server',
+    storageBucket: 'pets-image-server.appspot.com',
+    messagingSenderId: '1078139845830'
+  }
 };
 
 /*

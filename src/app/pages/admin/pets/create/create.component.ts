@@ -3,6 +3,9 @@ import { PetService } from '../../../../services/pet.service';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-pet',
@@ -14,6 +17,7 @@ export class CreateComponent implements OnInit{
 
     petForm: FormGroup;
     url = '';
+    urlPet: Observable<string>;
     formErrors = {
         'nombre': '',
         'raza': '',
@@ -57,7 +61,8 @@ export class CreateComponent implements OnInit{
         private petServ: PetService,
         private router: Router,
         private fb: FormBuilder,
-    ){};
+        private storage: AngularFireStorage,
+    ) {}
 
     ngOnInit() {
         this.buildForm();
@@ -80,7 +85,7 @@ export class CreateComponent implements OnInit{
 
     create() {
        if (this.petForm.valid) {
-           this.petForm.value.imagen = this.url;
+           this.petForm.value.imagen = this.urlPet;
            this.petServ.add(this.petForm.value).subscribe(res => {
                 this.router.navigate(['/auth/pets/list']);
             });
@@ -111,7 +116,13 @@ export class CreateComponent implements OnInit{
           reader.readAsDataURL(event.target.files[0]);
           reader.onload = (event) => {
             this.url = event.target.result;
-          }
+          };
         }
+        const id = Math.random().toString(36).substring(2);
+        const file = event.target.files[0];
+        const filePath = `uploads/pet_${id}`;
+        const ref = this.storage.ref(filePath);
+        const task = this.storage.upload(filePath, file);
+        task.snapshotChanges().pipe( finalize(() => this.urlPet = ref.getDownloadURL())).subscribe();
     }
 }
