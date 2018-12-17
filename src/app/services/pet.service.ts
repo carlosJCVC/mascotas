@@ -12,7 +12,6 @@ import { environment } from '../../environments/environment';
 export class PetService {
 
     url: string;
-
     constructor(public http: HttpClient) {
       // this.url = environment.petsAPI + '/api/mascotas';
       this.url = environment.petsAPIazure + '/api/mascotas';
@@ -43,10 +42,6 @@ export class PetService {
         this.url += `&edadmax=${edad[1]}`;
       }
       return this.http.get(this.url);
-    }
-
-    getAllMyPets(user_id){
-      return this.http.get(this.url + '/' + user_id);
     }
 
     getOne(id) {

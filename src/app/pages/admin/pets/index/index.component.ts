@@ -92,7 +92,7 @@ export class IndexComponent implements OnInit {
     }
 
     onDelete(id) {
-        if(confirm('Estas seguro que deseas eliminar este registro ?')){
+        if ( confirm('Estas seguro que deseas eliminar este registro ?') ) {
             this.petServ.delete(id).subscribe(
                 res => {
                     location.reload();
@@ -103,7 +103,7 @@ export class IndexComponent implements OnInit {
 
     sortData(event) {
         if ( event.active == 'id' ) {
-            if (event.direction == 'asc' || event.direction != ''){
+            if (event.direction == 'asc' || event.direction != '') {
                 this.rows.reverse();
             } else {
                 this.rows.sort();

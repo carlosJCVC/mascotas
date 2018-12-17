@@ -31,14 +31,21 @@ snack-bar-container.notification simple-snack-bar{
 .add-bottom-padding{
   padding-bottom: 10px;
 }
+
 h2 {
   text-align: center; 
 }
+
 .mat-form-field {
   width: 100%;
 }
+
 .mat-card {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
+}
+
+label{
+  text-align: left;
 }

@@ -28,7 +28,8 @@ import {
     MatSelectModule,
     MatOptionModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
 } from '@angular/material';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -81,7 +82,8 @@ export function highlightJsFactory(): any {
             provide: HIGHLIGHT_JS,
             useFactory: highlightJsFactory
         }),
-        PetsRouterModule
+        PetsRouterModule,
+        MatProgressBarModule
     ],
 
     declarations: [
