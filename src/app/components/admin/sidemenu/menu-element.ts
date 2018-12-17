@@ -31,11 +31,17 @@ export const menus = [
                 'link': 'adoption_requests/list',
                 'open': false,
             },
+            {
+                'name': 'Solicitudes Aceptadas',
+                'icon': 'check_circle',
+                'link': 'adoption_requests/acepted',
+                'open': false,
+            },
         ]
     },
     {
       'name': 'Clínicas Veterinarias',
-      'icon': 'pets',
+      'icon': 'healing',
       'link': false,
       'open': false,
       'sub': [

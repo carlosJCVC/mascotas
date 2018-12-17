@@ -40,6 +40,7 @@ import { IndexAdoptionComponent } from './index/indexAdoption.component';
 import { ViewAdoptionComponent } from './view/viewAdoption.component';
 
 import { FilterPipe } from './pipes/filter.pipe';
+import { AceptedRequestsComponent } from './solicitudes-aceptadas/indexAdoption.component';
 
 
 export function highlightJsFactory(): any {
@@ -85,6 +86,7 @@ export function highlightJsFactory(): any {
     ],
 
     declarations: [
+        AceptedRequestsComponent,
         IndexAdoptionComponent,
         ViewAdoptionComponent,
         FilterPipe,

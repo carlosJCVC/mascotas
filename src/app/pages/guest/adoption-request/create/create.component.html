@@ -8,17 +8,17 @@
 
                 <mat-form-field>
                     <input formControlName="Nombre" matInput class="input" placeholder="Nombre Completo" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <mat-error>El nombre es requerido</mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                         <input formControlName="Correo" matInput class="input" placeholder="Correo Electronico" required>
-                        <mat-error>Este campo es requerido.</mat-error>
+                        <mat-error>Un correo electectronico valido es requerido.</mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <input formControlName="CedulaIdentidad" matInput class="input" placeholder="C.I." required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <mat-error>Un carnet de identidad valido es requerido. (Formato: 7 numeros(ci) 2 letras(ciudad))</mat-error>
                 </mat-form-field>
 
 				    <mat-form-field>
@@ -36,18 +36,15 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input formControlName="Provincia" matInput class="input" placeholder="Provincia" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="Provincia" matInput class="input" placeholder="Provincia">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input formControlName="Direccion" matInput class="input" placeholder="Direccion" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="Direccion" matInput class="input" placeholder="Direccion">
                 </mat-form-field>
 
         				<mat-form-field>
-                    <input formControlName="Ocupacion" matInput class="input" placeholder="Ocupacion" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="Ocupacion" matInput class="input" placeholder="Ocupacion">
                 </mat-form-field>
 
 				        <mat-form-field>
@@ -60,33 +57,27 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input formControlName="RazonAdopcion" matInput class="input" placeholder="Por que quiere adoptar a la mascota ?" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="RazonAdopcion" matInput class="input" placeholder="Por que quiere adoptar a la mascota ?">
                 </mat-form-field>
 
 				        <mat-form-field>
-                    <input formControlName="MascotasActuales" matInput class="input" placeholder="Actualmente tiene otras mascotas ? Cuales ?" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="MascotasActuales" matInput class="input" placeholder="Actualmente tiene otras mascotas ? Cuales ?">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input formControlName="RazonMascotasEsterilizadas" matInput class="input" placeholder="Sus mascotas estan esterilizadas ? Por que ?" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="RazonMascotasEsterilizadas" matInput class="input" placeholder="Sus mascotas estan esterilizadas ? Por que ?">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input formControlName="MascotasAnteriormente" matInput class="input" placeholder="Anteriormente a tenido otras mascotas ? Cuales ?" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="MascotasAnteriormente" matInput class="input" placeholder="Anteriormente a tenido otras mascotas ? Cuales ?">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input formControlName="EstadoMascotasAnteriores" matInput class="input" placeholder="Que paso con sus anteriores mascotas ?" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="EstadoMascotasAnteriores" matInput class="input" placeholder="Que paso con sus anteriores mascotas ?">
                 </mat-form-field>
 
 				        <mat-form-field>
-                    <input formControlName="VisitaPeriodicaDomicilio" matInput class="input" placeholder="Está de acuerdo que se realicese una visaita periódica a su domicilio para ver cómo se encuentra la mascota adoptada? ?" required>
-                    <mat-error>Este campo es requerido.</mat-error>
+                    <input formControlName="VisitaPeriodicaDomicilio" matInput class="input" placeholder="Está de acuerdo que se realicese una visaita periódica a su domicilio para ver cómo se encuentra la mascota adoptada? ?">
                 </mat-form-field>
                 <br>
                 <button mat-raised-button color="primary" type="button" [routerLink]="['']">Atras</button>

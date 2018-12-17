@@ -1,0 +1,73 @@
+<div fxLayout="column"  class="components-container-gt-xs" fxLayoutGap="20px">
+    <div fxFlex class="table-component-holder mat-elevation-z4">
+        <mat-toolbar class="table-header">
+            <h1 class="mat-headline center-align" >Lista de solicitudes Aceptadas</h1>
+        </mat-toolbar>
+
+        <div class="table-container">
+            <div class="table-container">
+
+              <div class="search-div header-search">
+                    <mat-form-field style="color: black; width: 100%;">
+                        <input matInput placeholder="Buscar por Nombre, Ci, Correo" autocomplete="off" >
+                    </mat-form-field>
+                </div>
+            
+            <table matSort>
+            	<thead>
+                <tr>
+                  <th mat-sort-header="{{th.key}}" scope="col" *ngFor="let th of helpers?.header">{{th.name}}</th>
+                </tr>
+            	</thead>
+
+            	<tbody>
+            		<tr *ngFor="let row of rows|filter:searchText let i=index">
+            			<td [attr.data-label]="th.name" *ngFor="let th of helpers?.header">
+            				<span *ngIf="th.key!='action'">
+
+            					{{row[th.key]}}
+                      <mat-chip  (click)="findDuplicates(row)"
+                                 selected="true"
+                                 color="warn"
+                                 matTooltip="{{row['duplicate_applications'].length}} duplicate entries"
+                                 matTooltipPosition="right"
+                                 *ngIf="th.key=='applicationNumber'
+                                      && row['duplicate_applications'] != 'undefined'
+                                      && row['duplicate_applications']
+                                      && row['duplicate_applications'].length > 0">
+                      {{row['duplicate_applications'].length }}
+                      </mat-chip>
+
+            				</span>
+
+            				<span *ngIf="th.key=='action'">
+                        <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Acciones</button>
+                        <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="awnswerAdoptionRequest(row.id, 'completada')">Completar</button>
+                        <button mat-menu-item (click)="awnswerAdoptionRequest(row.id, 'rechazada')">Rechazar</button>
+                        </mat-menu>
+                    </span>
+
+            			</td>
+            		</tr>
+
+                <tr *ngIf="rows?.length==0 && status==false">
+                    <td [colSpan]="header.length" style="text-align: center;">
+                        No hay solicitudes de adopción
+                    </td>
+                </tr>
+
+              </tbody>
+
+                <thead *matHeaderRowDef="displayedColumns"></thead>
+                <tr *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [length]="pageLength"
+                           [pageSize]="pageSize"
+                           [pageSizeOptions]="[1, 5, 10, 25, 100, 150, 200]"  (page)="next($event)">
+            </mat-paginator>
+
+        </div>
+    </div>
+</div>
