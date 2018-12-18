@@ -1,6 +1,5 @@
 import { Component, OnInit , ElementRef , ViewChild } from '@angular/core';
 import { PetService } from '../../../../services/pet.service';
-
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -13,12 +12,14 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./create.component.scss']
 })
 
-export class CreateComponent implements OnInit{
+export class CreateComponent implements OnInit {
 
+    @ViewChild('imagePet') inputImagePet: ElementRef;
     petForm: FormGroup;
     url = '';
     urlPet: Observable<string>;
     uploadPercent: Observable<number>;
+    public existImage: boolean;
     formErrors = {
         'nombre': '',
         'raza': '',
@@ -65,7 +66,6 @@ export class CreateComponent implements OnInit{
         private storage: AngularFireStorage,
     ) {}
 
-    @ViewChild('imagePet') inputImagePet: ElementRef;
     ngOnInit() {
         this.buildForm();
     }
@@ -102,23 +102,25 @@ export class CreateComponent implements OnInit{
     onSubmit() {
 
     }
-
+    onCancel() {
+        this.router.navigate(['/auth/pets/list']);
+    }
+    openInput() {
+        document.getElementById('fileInput').click();
+    }
     onSelectFile(event) {
-        var element = document.getElementById('preview');
-        element.classList.remove('preview_img');
-
         if (event.target.files && event.target.files[0]) {
           var reader = new FileReader();
-
           reader.readAsDataURL(event.target.files[0]);
           reader.onload = (event) => {
             this.url = event.target.result;
           };
+          this.existImage = true;
         }
 
         const id = Math.random().toString(36).substring(2);
         const file = event.target.files[0];
-        const filePath = `uploads/pet_${id}`;
+        const filePath = `uploads/pets/pet_${id}`;
         const ref = this.storage.ref(filePath);
         const task = this.storage.upload(filePath, file);
         this.uploadPercent = task.percentageChanges();

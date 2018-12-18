@@ -11,11 +11,18 @@
     </div>
     <br>
     <ng-template #nothing></ng-template>
+    <label>Logo de la Clinica *</label>
     <button mat-raised-button (click)="openInput()">
       Escoga la imagen para subir
     </button>
     <input id="fileInput" hidden type="file" (change)="onSelectFile($event)">
-
+    <div class="progress">
+      <mat-progress-bar
+        [value]="uploadPercent|async"
+        >
+      </mat-progress-bar>
+    </div>
+    <input #imageClinic type="hidden" [value]="urlClinic|async">
     <mat-form-field>
       <input formControlName="Nombre" matInput class="input" placeholder="Nombre Clínica" required>
       <mat-error>Este campo es requerido.</mat-error>
@@ -41,7 +48,7 @@
       <mat-error>Este campo es requerido.</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="accent" [disabled]="!clinicForm.valid" (click)="onSubmit()">Enviar</button>
+    <button mat-raised-button color="accent" [disabled]="!clinicForm.valid || !existImage" (click)="onSubmit()">Enviar</button>
     <br>
     <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
   </form>

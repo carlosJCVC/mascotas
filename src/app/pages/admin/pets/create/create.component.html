@@ -5,16 +5,27 @@
   
   <mat-card-content>
     <form class="form" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="petForm">
+    <div *ngIf="existImage; else nothing;">
+            <img mat-card-sm-image class="image_preview" [src]="url">
+            <br>
+    </div>
+    <ng-template #nothing></ng-template>
     <label>Imagen de la mascota *</label>
     <input #imagePet type="hidden" [value]="urlPet|async">
       <div class="preview_img_pet">
-        <img [src]="url" height="200" width="200" class="preview_img" id="preview"> <br/>
-        <input type='file' accept=".jpg, .png" (change)="onSelectFile($event)">
+       <!-- <img [src]="url" height="200" width="200" class="preview_img" id="preview"> -->
+        <input id="fileInput" hidden type='file' accept=".jpg, .png" (change)="onSelectFile($event)">
       </div>
       <br>
-      <mat-progress-bar
-                [value]="uploadPercent|async">
-      </mat-progress-bar>
+      <button mat-raised-button (click)="openInput()">
+        Escoga la imagen para subir
+      </button>
+      <div class="progress">
+        <mat-progress-bar
+          [value]="uploadPercent|async">
+        </mat-progress-bar>
+      </div>
+     
 
       <mat-form-field>
         <input formControlName="nombre" matInput class="input" placeholder="Nombre mascota" required>
@@ -77,8 +88,10 @@
         <mat-error>Descripcion de la mascota es requerido.</mat-error>
       </mat-form-field>
       <br>
-      <button *ngIf="urlPet|async" mat-stroked-button color="primary" type="submit" [disabled]="!petForm.valid" (click)="create()">Guardar
+      <button  mat-raised-button color="accent" type="submit" [disabled]="!petForm.valid || !existImage" (click)="create()">Guardar
         </button>
+      <br>
+      <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
     </form>
   </mat-card-content>
 
