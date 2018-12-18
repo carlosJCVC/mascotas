@@ -26,12 +26,7 @@ export class IndexVeterinaryClinicsComponent implements OnInit {
           return {
             id: data[key].id,
             nombre: data[key].nombre,
-            raza: data[key].raza,
-            edad: data[key].edad,
-            procedencia: data[key].procedencia,
-            sexo: data[key].sexo,
-            especie: data[key].especie,
-            estado: data[key].estado,
+            direccion: data[key].direccion,
           };
         });
 

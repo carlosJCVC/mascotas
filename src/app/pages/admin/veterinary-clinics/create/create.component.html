@@ -37,7 +37,15 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input formControlName="Dias" matInput class="input" placeholder="Dias de Atencion" required>
+      <mat-select placeholder="Dias de Atencion" [formControl]="days" multiple>
+        <mat-select-trigger>
+          {{days.value ? days.value[0] : ''}}
+          <span *ngIf="days.value?.length > 1" class="additional-selection">
+        (+{{days.value.length - 1}} {{days.value?.length === 2 ? 'dia' : 'dias'}})
+      </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let day of daysList" [value]="day">{{day}}</mat-option>
+      </mat-select>
       <mat-error>Este campo es requerido.</mat-error>
     </mat-form-field>
 

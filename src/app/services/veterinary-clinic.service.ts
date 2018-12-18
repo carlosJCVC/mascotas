@@ -12,7 +12,7 @@ export class VeterinaryClinicService {
 
   constructor(public http: HttpClient) {
     // this.url = environment.petsAPI + '/api/mascotas';
-    this.url = environment.petsAPIazure + '/api/clinicasveterinarias';
+    this.url = environment.petsAPIazure + '/api/ClinicasVeterianarias';
 
   }
 

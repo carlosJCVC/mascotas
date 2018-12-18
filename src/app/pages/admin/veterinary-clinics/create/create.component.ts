@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VeterinaryClinicService } from '../../../../services/veterinary-clinic.service';
 
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-clinic',
@@ -13,8 +13,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CreateVeterinaryClinicsComponent implements OnInit {
 
   clinicForm: FormGroup;
+  days = new FormControl();
   url = '';
   public existImage: boolean;
+  daysList: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,7 +31,7 @@ export class CreateVeterinaryClinicsComponent implements OnInit {
       'Direccion': ['', [Validators.required]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
-      'Dias': ['', [Validators.required]],
+      //'Dias': ['', [Validators.required]],
       'Logo': [''],
     });
   }
@@ -39,9 +41,11 @@ export class CreateVeterinaryClinicsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.clinicForm.value.Dias = this.days.value.toString();
     this.clinicForm.value.Logo = this.url;
+
     this.clinicServ.add(this.clinicForm.value).subscribe(res => {
-      this.router.navigate(['/auth/clinics/list']);
+     this.router.navigate(['/auth/clinics/list']);
     });
   }
 

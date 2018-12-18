@@ -1,13 +1,8 @@
 export const ResponsiveTableHelpers = {
   header: [
     {
-      name: 'ID',
-      key: 'id',
-      order: 'asc'
-    },
-    {
       name: 'Nombre Clinica',
-      key: 'nombre_clinica',
+      key: 'nombre',
       order: 'asc'
     },
     {

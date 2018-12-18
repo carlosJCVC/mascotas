@@ -1,25 +1,26 @@
 <div class="back" fxFlexFill fxLayoutAlign="center center" style="background-image:url('../../assets/login11.jpg');">
-            <mat-card>
-                <mat-card-title>LOGIN</mat-card-title>
-                <mat-card-content>
-                    <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="userForm" (ngSubmit)="login()">
-                        <mat-form-field class="full-width">
-                            <input type="email" id="email" class="input" placeholder="Email / Username"
-                                   formControlName="username" matInput>
-                        </mat-form-field>
-                        <div *ngIf="formErrors.email" class="help is-danger">
-                            {{ formErrors.email }}
-                        </div>
-                        <mat-form-field class="full-width">
-                            <input type="password" id="password" class="input" placeholder="Password"
-                                   formControlName="password" matInput>
-                        </mat-form-field>
-                        <div *ngIf="formErrors.password" class="help is-danger">
-                            {{ formErrors.password }}
-                        </div>
-                    </form>
-                    <button mat-raised-button color="primary" type="submit" (click)="cancel()">CANCEL</button>
-                    <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid" (click)="login()">LOGIN</button>
-                </mat-card-content>
-            </mat-card>
+  <mat-card>
+    <mat-card-title>LOGIN</mat-card-title>
+    <mat-card-content>
+      <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="userForm" (ngSubmit)="login()">
+        <mat-form-field class="full-width">
+          <input type="email" id="email" class="input" placeholder="Email / Username"
+                 formControlName="username" matInput>
+        </mat-form-field>
+        <div *ngIf="formErrors.email" class="help is-danger">
+          {{ formErrors.email }}
+        </div>
+        <mat-form-field class="full-width">
+          <input type="password" id="password" class="input" placeholder="Password"
+                 formControlName="password" matInput>
+        </mat-form-field>
+        <div *ngIf="formErrors.password" class="help is-danger">
+          {{ formErrors.password }}
+        </div>
+      </form>
+      <button mat-raised-button color="primary" type="submit" (click)="cancel()">CANCEL</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid" (click)="login()">LOGIN
+      </button>
+    </mat-card-content>
+  </mat-card>
 </div>

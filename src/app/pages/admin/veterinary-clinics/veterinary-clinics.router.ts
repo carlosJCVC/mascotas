@@ -8,6 +8,7 @@ const materialWidgetRoutes: Routes = [
   { path: 'list', component: IndexVeterinaryClinicsComponent , data: { animation: 'responsive' }},
   { path: 'create', component: CreateVeterinaryClinicsComponent , data: { animation: 'responsive' }},
   { path: 'edit/:id', component: ViewVeterinaryClinicComponent , data: { animation: 'responsive' }},
+  { path: 'view/:id', component: ViewVeterinaryClinicComponent, data: {animation: 'responsive'}},
 ];
 
 @NgModule({
