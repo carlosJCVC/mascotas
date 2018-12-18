@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
   styleUrls: ['./create.component.scss']
 })
 
-export class CreateVeterinaryClinicsComponent implements OnInit {
+export class CreateVeterinaryClinicComponent implements OnInit {
 
   clinicForm: FormGroup;
   days = new FormControl();

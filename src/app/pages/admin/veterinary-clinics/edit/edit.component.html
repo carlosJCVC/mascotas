@@ -1,0 +1,58 @@
+<mat-card>
+  <div class="container">
+    <div class="example-container">
+      <mat-card-title>
+        Edition clinic veterinary
+      </mat-card-title>
+      <div *ngIf="existeImagen; else nothing;">
+        <img mat-card-sm-image src="{{url}}">
+        <br>
+      </div>
+      <br>
+      <ng-template #nothing></ng-template>
+      <button mat-raised-button (click)="openInput()">
+        Escoga la imagen para subir
+      </button>
+      <input id="fileInput" hidden type="file" (change)="onSelectFile($event)">
+
+      <br>
+      <br>
+
+      <mat-form-field>
+        <input matInput placeholder="Nombre Clínica" required [(ngModel)]="clinic_nombre">
+        <mat-error>Este campo es requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Direccion Clínica" required [(ngModel)]="clinic_direccion">
+        <mat-error>Este campo es requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Especialidades" required [(ngModel)]="clinic_especialidades">
+        <mat-error>Este campo es requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Horario" required [(ngModel)]="clinic_horario">
+        <mat-error>Este campo es requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Dias de Atencion" [formControl]="days" multiple [(ngModel)]="clinic_dias">
+          <mat-select-trigger>
+            {{days.value ? days.value[0] : ''}}
+            <span *ngIf="days.value?.length > 1" class="additional-selection">
+        (+{{days.value.length - 1}} {{days.value?.length === 2 ? 'dia' : 'dias'}})
+      </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let day of daysList" [value]="day">{{day}}</mat-option>
+        </mat-select>
+        <mat-error>Este campo es requerido.</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" (click)="onSubmit()">Actualizar</button>
+      <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
+    </div>
+  </div>
+</mat-card>

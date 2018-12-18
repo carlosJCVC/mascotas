@@ -34,24 +34,28 @@
       </mat-toolbar>
 
       <div class="cards-container">
-        <mat-card-subtitle>
-          <h4><strong>Nombre: </strong></h4> {{pet?.nombre}}
-        </mat-card-subtitle>
-        <mat-card-subtitle><strong>Edad: </strong>{{pet?.edad}}</mat-card-subtitle>
-        <mat-card-subtitle><strong>Especie: </strong>{{pet?.especie}}</mat-card-subtitle>
+        <div  fxLayoutAlign="space-around stretch" fxLayoutWrap>
+          <mat-card>
+            <mat-card-subtitle>
+              <h4><strong>Nombre: </strong></h4> {{pet?.nombre}}
+            </mat-card-subtitle>
+            <mat-card-subtitle><strong>Edad: </strong>{{pet?.edad}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>Especie: </strong>{{pet?.especie}}</mat-card-subtitle>
 
-        <mat-card-subtitle><strong>Enfermedades: </strong>{{pet?.enfermedades}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>Enfermedades: </strong>{{pet?.enfermedades}}</mat-card-subtitle>
 
-        <mat-card-subtitle><strong>Raza: </strong>{{pet?.raza}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>Raza: </strong>{{pet?.raza}}</mat-card-subtitle>
 
-        <mat-card-subtitle><strong>Sexo: </strong>{{pet?.Sexo}}</mat-card-subtitle>
+            <mat-card-subtitle><strong>Sexo: </strong>{{pet?.Sexo}}</mat-card-subtitle>
 
-        <mat-card-subtitle><strong>Procedencia</strong></mat-card-subtitle>
-        <mat-card-content>
-          <p>
-            {{pet?.procedencia}}
-          </p>
-        </mat-card-content>
+            <mat-card-subtitle><strong>Procedencia</strong></mat-card-subtitle>
+            <mat-card-content>
+              <p>
+                {{pet?.procedencia}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>

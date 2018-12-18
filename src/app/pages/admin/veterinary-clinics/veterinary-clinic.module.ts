@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { VeterinaryClinicRouterModule } from './veterinary-clinics.router';
+import { VeterinaryClinicRouterModule } from './veterinary-clinic.router';
 
 import {
   MatButtonModule,
@@ -36,10 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
 import * as hljs from 'highlight.js';
 import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
 import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
-import { IndexVeterinaryClinicsComponent } from './index/index-veterinary-clinics.component';
-import { CreateVeterinaryClinicsComponent } from './create/create.component';
+import { IndexVeterinaryClinicComponent } from './index/index-veterinary-clinics.component';
+import { CreateVeterinaryClinicComponent } from './create/create.component';
 import { ViewVeterinaryClinicComponent } from './view/view-veterinary-clinic.component';
-import { PetService } from '../../../services/pet.service';
+import { EditVeterinaryClinicComponent } from './edit/edit.component';
 
 export function highlightJsFactory(): any {
   hljs.registerLanguage('typescript', hljsTypescript);
@@ -84,9 +83,10 @@ export function highlightJsFactory(): any {
   ],
 
   declarations: [
-    IndexVeterinaryClinicsComponent,
-    CreateVeterinaryClinicsComponent,
+    IndexVeterinaryClinicComponent,
+    CreateVeterinaryClinicComponent,
     ViewVeterinaryClinicComponent,
+    EditVeterinaryClinicComponent,
   ],
 
   exports: [
@@ -97,6 +97,4 @@ export function highlightJsFactory(): any {
   ],
 })
 
-export class VeterinaryClinicsModule { }
-
-
+export class VeterinaryClinicModule { }

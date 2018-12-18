@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './index-veterinary-clinics.component.html',
   styleUrls: ['./index-veterinary-clinics.component.scss']
 })
-export class IndexVeterinaryClinicsComponent implements OnInit {
+export class IndexVeterinaryClinicComponent implements OnInit {
 
   helpers = ResponsiveTableHelpers;
   rows: Array<any> = [];
@@ -47,10 +47,10 @@ export class IndexVeterinaryClinicsComponent implements OnInit {
     if(confirm('Estas seguro que deseas eliminar este registro ?')){
       this.clinicServ.delete(id).subscribe(
         res => {
+          this.getRows();
           this.router.navigate(['/auth/clinics/list']);
         }
       );
     }
-    this.getRows();
   }
 }
