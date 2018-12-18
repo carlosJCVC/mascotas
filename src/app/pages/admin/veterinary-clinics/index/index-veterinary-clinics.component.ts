@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'index-veterinary-clinics',
   templateUrl: './index-veterinary-clinics.component.html',
-  styleUrls: ['./index-veterinary-clinics.component.css']
+  styleUrls: ['./index-veterinary-clinics.component.scss']
 })
 export class IndexVeterinaryClinicsComponent implements OnInit {
 
@@ -51,5 +51,6 @@ export class IndexVeterinaryClinicsComponent implements OnInit {
         }
       );
     }
+    this.getRows();
   }
 }
