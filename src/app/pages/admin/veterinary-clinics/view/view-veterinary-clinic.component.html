@@ -10,8 +10,8 @@
         <div fxLayoutAlign="space-around stretch" fxLayoutWrap>
           <mat-card>
             <mat-card-header>
-              <div mat-card-avatar class="pet-header-image">
-              </div>
+              <div mat-card-avatar style="background-image: url('../../../../../assets/logoveterinary.jpg');
+  background-size: cover;"></div>
               <mat-card-title>{{clinic?.nombre}}</mat-card-title>
             </mat-card-header>
 
@@ -19,7 +19,7 @@
 
             <mat-card-content>
               <p class="mat-body-1">
-                {{pet?.especialidades}}
+                {{clinic?.especialidades}}
               </p>
             </mat-card-content>
           </mat-card>
@@ -33,14 +33,23 @@
       </mat-toolbar>
 
       <div class="cards-container">
-        <mat-card-subtitle>
-          <h4><strong>Nombre: </strong></h4> {{clinic?.nombre}}
-        </mat-card-subtitle>
-        <mat-card-subtitle><strong>Direccion: </strong>{{clinic?.direccion}}</mat-card-subtitle>
-        <mat-card-subtitle><strong>Horario: </strong>{{clinic?.horario}}</mat-card-subtitle>
+        <div  fxLayoutAlign="space-around stretch" fxLayoutWrap>
+            <mat-card>
+              <mat-card-content>
+                <mat-card-subtitle>
+                  <h4><strong>Nombre: </strong></h4> {{clinic?.nombre}}
+                </mat-card-subtitle>
+                <mat-card-subtitle><strong>Direccion: </strong>{{clinic?.direccion}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>Telefono: </strong>{{clinic?.telefono}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>Especialidades: </strong>{{clinic?.especialidades}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>Horario: </strong>{{clinic?.horario}}</mat-card-subtitle>
 
-        <mat-card-subtitle><strong>Dias de atencion: </strong>{{clinic?.dias}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>Dias de atencion: </strong>{{clinic?.dias}}</mat-card-subtitle>
+              </mat-card-content>
+            </mat-card>
+        </div>
       </div>
+
     </div>
   </div>
 </div>

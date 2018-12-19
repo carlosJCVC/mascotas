@@ -16,6 +16,9 @@
         <tbody>
           <tr *ngFor="let row of rows let i=index">
             <td [attr.data-label]="th.name" *ngFor="let th of helpers?.header">
+              <span *ngIf="th.key!='action'">
+              {{row[th.key]}}
+              </span>
 
               <span *ngIf="th.key=='action'">
                   <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Acciones</button>

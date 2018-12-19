@@ -32,12 +32,12 @@ export class EditComponent implements OnInit {
     public pet_descripcion;
     public pet_sexo;
     public pet_estado;
+
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
             this.id = params.id;
             this.petService.getOne(this.id).subscribe(res => {
                 this.pet = res;
-                // console.log(res);
                 this.pet_nombre = this.pet.nombre;
                 this.pet_raza = this.pet.raza;
                 this.pet_edad = this.pet.edad;
@@ -49,7 +49,11 @@ export class EditComponent implements OnInit {
                 this.pet_estado = this.pet.estado;
 
                 this.url = this.pet.imagen;
-               if (this.url === '') { this.existeImagen = false;  } else { this.existeImagen = true; }
+               if( this.url === '' ) {
+                 this.existeImagen = false;
+               } else {
+                 this.existeImagen = true;
+               }
 
 
             });
@@ -67,9 +71,7 @@ export class EditComponent implements OnInit {
         this.mascota.estado = this.pet_estado;
         this.mascota.imagen = this.url;
         this.mascota.id = this.id;
-        // console.log(this.mascota);
         this.petService.edit(this.id, this.mascota).subscribe(res => {
-            // console.log(res);
             this.route.navigate(['/auth/pets/list']);
 
         });

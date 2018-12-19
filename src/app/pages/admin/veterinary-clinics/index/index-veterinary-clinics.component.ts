@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'index-veterinary-clinics',
   templateUrl: './index-veterinary-clinics.component.html',
-  styleUrls: ['./index-veterinary-clinics.component.css']
+  styleUrls: ['./index-veterinary-clinics.component.scss']
 })
-export class IndexVeterinaryClinicsComponent implements OnInit {
+export class IndexVeterinaryClinicComponent implements OnInit {
 
   helpers = ResponsiveTableHelpers;
   rows: Array<any> = [];
@@ -26,12 +26,7 @@ export class IndexVeterinaryClinicsComponent implements OnInit {
           return {
             id: data[key].id,
             nombre: data[key].nombre,
-            raza: data[key].raza,
-            edad: data[key].edad,
-            procedencia: data[key].procedencia,
-            sexo: data[key].sexo,
-            especie: data[key].especie,
-            estado: data[key].estado,
+            direccion: data[key].direccion,
           };
         });
 
@@ -52,6 +47,7 @@ export class IndexVeterinaryClinicsComponent implements OnInit {
     if(confirm('Estas seguro que deseas eliminar este registro ?')){
       this.clinicServ.delete(id).subscribe(
         res => {
+          this.getRows();
           this.router.navigate(['/auth/clinics/list']);
         }
       );

@@ -25,10 +25,6 @@ export class VeterinaryClinicService {
     return this.http.get(this.url);
   }
 
-  getAllMyPets(user_id){
-    return this.http.get(this.url + '/' + user_id);
-  }
-
   getOne(id) {
     return this.http.get(this.url + '/' + id);
   }
@@ -38,6 +34,6 @@ export class VeterinaryClinicService {
   }
 
   delete(id) {
-    return this.http.get(this.url + '/' + id);
+    return this.http.delete(this.url + '/' + id);
   }
 }

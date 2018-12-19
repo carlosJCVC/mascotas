@@ -13,8 +13,8 @@ export class AuthenticationService {
   url: string;
   constructor(public httpClient: HttpClient) {
     this.user = null;
-    //this.url = environment.petsAPIazure + '/api/auth';
-    this.url = environment.petsAPI + '/api/auth';
+    this.url = environment.petsAPIazure + '/api/auth';
+    //this.url = environment.petsAPI + '/api/auth';
   }
 
   public post(data: any) {

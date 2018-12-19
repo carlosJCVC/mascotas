@@ -1,24 +1,27 @@
 import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import { VeterinaryClinicService } from '../../../../services/veterinary-clinic.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+
 @Component({
   selector: 'app-create-clinic',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
 
-export class CreateVeterinaryClinicsComponent implements OnInit {
+export class CreateVeterinaryClinicComponent implements OnInit {
 
   @ViewChild('imageClinic') inputImageClinic: ElementRef;
   clinicForm: FormGroup;
+  days = new FormControl();
   url = '';
   urlClinic: Observable<string>;
   uploadPercent: Observable<number>;
   public existImage: boolean;
+  daysList: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,7 +37,7 @@ export class CreateVeterinaryClinicsComponent implements OnInit {
       'Direccion': ['', [Validators.required]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
-      'Dias': ['', [Validators.required]],
+      //'Dias': ['', [Validators.required]],
       'Logo': [''],
     });
   }
@@ -44,10 +47,11 @@ export class CreateVeterinaryClinicsComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.inputImageClinic.nativeElement.value);
+    this.clinicForm.value.Dias = this.days.value.toString();
     this.clinicForm.value.Logo = this.inputImageClinic.nativeElement.value;
+
     this.clinicServ.add(this.clinicForm.value).subscribe(res => {
-      this.router.navigate(['/auth/clinics/list']);
+     this.router.navigate(['/auth/clinics/list']);
     });
   }
 
