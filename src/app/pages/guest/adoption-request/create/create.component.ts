@@ -17,13 +17,13 @@ export class CreateComponent implements OnInit {
 
     ngOnInit() {
         this.adoptionRequestForm = this.fb.group({
-            'Nombre': ['', [ Validators.required ]],
-            'Correo': ['', [ Validators.required ]],
-            'CedulaIdentidad': ['', [ Validators.required, Validators.pattern('[1-9]{1,7}[a-zA-Z][a-zA-Z]') ]],
+            'Nombre': ['', [ Validators.required,Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,10}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚ]{1,10}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚ]{1,10}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚ]{1,10}') ]],
+            'Correo': ['', [ Validators.required,Validators.email ]],
+            'CedulaIdentidad': ['', [ Validators.required, Validators.pattern('[0-9]{1,7}[a-zA-Z]{2,3}') ]],
             'Departamento': ['', []],
-            'Provincia': ['', []],
-            'Direccion': ['', []],
-            'Ocupacion': ['', []],
+            'Provincia': ['', [Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,20}')]],
+            'Direccion': ['', [Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{3,50}')]],
+            'Ocupacion': ['', [Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{3,30}')]],
             'EstadoCivil': ['', []],
             'RazonAdopcion': ['', []],
             'MascotasActuales': ['', []],

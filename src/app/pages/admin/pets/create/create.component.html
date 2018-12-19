@@ -29,7 +29,7 @@
 
       <mat-form-field>
         <input formControlName="nombre" matInput class="input" placeholder="Nombre mascota" required>
-        <mat-error>El campo nombre es requerido.</mat-error>
+        <mat-error>El campo nombre es requerido.(Tam max 30)</mat-error>
       </mat-form-field>
       <div *ngIf="formErrors.nombre" class="help is-danger">
         {{ formErrors.nombre }}
@@ -37,7 +37,7 @@
 
       <mat-form-field>
         <input formControlName="raza" matInput class="input" placeholder="Raza" required>
-        <mat-error>El campo raza es requerido.</mat-error>
+        <mat-error>El campo raza es requerido.(Tam max 30)</mat-error>
       </mat-form-field>
       <div *ngIf="formErrors.raza" class="help is-danger">
         {{ formErrors.raza }}
@@ -52,7 +52,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input formControlName="edad" matInput placeholder="Edad*">
+        <input formControlName="edad" matInput placeholder="Edad*" type="number" min="1">
         <mat-error>Edad de mascota es requerido.</mat-error>
       </mat-form-field>
       <div *ngIf="formErrors.edad" class="help is-danger">
@@ -88,7 +88,7 @@
         <mat-error>Descripcion de la mascota es requerido.</mat-error>
       </mat-form-field>
       <br>
-      <button  mat-raised-button color="accent" type="submit" [disabled]="!petForm.valid || !existImage" (click)="create()">Guardar
+      <button  mat-raised-button color="primary" type="submit" [disabled]="!petForm.valid || !existImage" (click)="create()">Guardar
         </button>
       <br>
       <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>

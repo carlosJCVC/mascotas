@@ -15,7 +15,8 @@
     <button mat-raised-button type="button" (click)="openInput()">
       Escoga la imagen para subir
     </button>
-    <input id="fileInput" hidden type="file" (change)="onSelectFile($event)">
+    <!-- <input id="fileInput" hidden type="file" (change)="onSelectFile($event)"> -->
+    <input id="fileInput" hidden type='file' accept=".jpg, .png" (change)="onSelectFile($event)">
     <div class="progress">
       <mat-progress-bar [value]="uploadPercent|async">
       </mat-progress-bar>
@@ -54,7 +55,7 @@
       <mat-error>Este campo es requerido.</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="accent" [disabled]="!clinicForm.valid || !existImage" (click)="onSubmit()">Enviar</button>
+    <button mat-raised-button color="primary" [disabled]="!clinicForm.valid || !existImage" (click)="onSubmit()">Enviar</button>
     <br>
     <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
   </form>

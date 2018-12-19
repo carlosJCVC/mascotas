@@ -8,7 +8,7 @@
 
           <div class="search-div search-header" style="padding: 0 20px;">
             <mat-form-field class="search-form-field" floatPlaceholder="never"  style="color: black; width: 100%;">
-              <input matInput  placeholder="Buscar por Nombre, Raza, Procedencia o Edad" autocomplete="off" >
+              <input matInput [(ngModel)]="searchText" placeholder="Buscar por Nombre, Raza, Procedencia o Edad" autocomplete="off" >
             </mat-form-field>
           </div>
 
@@ -29,7 +29,7 @@
             </thead>
 
             <tbody>
-              <tr *ngFor="let row of rows ;let i=index" >
+              <tr *ngFor="let row of rows| filterpets:searchText ;let i=index" >
                 <td [attr.data-label]="th.name" *ngFor="let th of helpers?.header" >
                   <span *ngIf="th.key!='action'">
                     {{row[th.key]}}
