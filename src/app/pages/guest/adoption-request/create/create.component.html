@@ -67,23 +67,9 @@
       <mat-hint align="end">{{inputPreg1.value?.length || 0}}/250</mat-hint>
     </mat-form-field>
 
-    <section class="custom-section">
-      <mat-checkbox class="custom-margin" (change)="checkedPreg2($event)">¿ Actualmente tiene otras mascotas ?</mat-checkbox>
-
-      <mat-form-field hintLabel="Max 250 caracteres" *ngIf="mascotasActuales">
-        <textarea #inputPreg2 formControlName="MascotasActuales" matInput maxlength="250" placeholder="¿ Cuales ?"></textarea>
-        <mat-hint align="end">{{inputPreg2.value?.length || 0}}/250</mat-hint>
-      </mat-form-field>
-
-      <section class="custom-section" *ngIf="mascotasActuales">
-        <mat-checkbox class="custom-margin" (change)="checkedPreg3($event)">¿ Sus mascotas estan esterilizadas ?</mat-checkbox>
-
-        <mat-form-field hintLabel="Max 250 caracteres" *ngIf="mascotasEsterilizadas">
-          <textarea matInput #inputPreg3 formControlName="RazonMascotasEsterilizadas" placeholder=" Por que ?"></textarea>
-          <mat-hint align="end">{{inputPreg3.value?.length || 0}}/250</mat-hint>
-        </mat-form-field>
-      </section>
-    </section>
+    <mat-form-field>
+      <input formControlName="RazonMascotasEsterilizadas" matInput class="input" placeholder="Sus mascotas estan esterilizadas Por que ?">
+    </mat-form-field>
 
     <mat-form-field>
       <input formControlName="MascotasAnteriormente" matInput class="input"

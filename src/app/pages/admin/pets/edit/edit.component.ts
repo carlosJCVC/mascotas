@@ -5,9 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PetService } from '../../../../services/pet.service';
 
 @Component({
-  selector: 'app-edit-pet',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+    selector: 'app-edit-pet',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.scss']
 })
 
 export class EditComponent implements OnInit {
@@ -15,7 +15,7 @@ export class EditComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private petService: PetService,
         private route: Router,
-    ) {}
+    ) { }
 
     ourFile: File;
     public url = '';
@@ -32,6 +32,7 @@ export class EditComponent implements OnInit {
     public pet_descripcion;
     public pet_sexo;
     public pet_estado;
+    public selectedSexo;
 
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
@@ -47,14 +48,13 @@ export class EditComponent implements OnInit {
                 this.pet_descripcion = this.pet.descripcion;
                 this.pet_sexo = this.pet.sexo;
                 this.pet_estado = this.pet.estado;
-
+                this.selectedSexo = this.pet_sexo
                 this.url = this.pet.imagen;
-               if( this.url === '' ) {
-                 this.existeImagen = false;
-               } else {
-                 this.existeImagen = true;
-               }
-
+                if (this.url === '') {
+                    this.existeImagen = false;
+                } else {
+                    this.existeImagen = true;
+                }
 
             });
         });
@@ -84,25 +84,25 @@ export class EditComponent implements OnInit {
     openInput() {
         // your can use ElementRef for this later
         document.getElementById('fileInput').click();
-      }
+    }
 
     fileChange(files: File[]) {
         if (files.length > 0) {
-          this.ourFile = files[0];
+            this.ourFile = files[0];
         }
-      }
-      onSelectFile(event) {
+    }
+    onSelectFile(event) {
         if (event.target.files && event.target.files[0]) {
-          const reader = new FileReader();
+            const reader = new FileReader();
 
-          reader.readAsDataURL(event.target.files[0]);
-          reader.onload = (
-              event) => {
-            this.url = event.target.result;
-            this.existeImagen = true;
-          }
+            reader.readAsDataURL(event.target.files[0]);
+            reader.onload = (
+                event) => {
+                this.url = event.target.result;
+                this.existeImagen = true;
+            }
         }
-      }
+    }
 }
 
 export interface Mascota {

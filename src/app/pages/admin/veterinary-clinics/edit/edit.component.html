@@ -2,7 +2,7 @@
   <div class="container">
     <div class="example-container">
       <mat-card-title>
-        Edition clinic veterinary
+        Editar Clínica Veterinaria
       </mat-card-title>
       <div *ngIf="existeImagen; else nothing;">
         <img mat-card-sm-image src="{{url}}">
@@ -13,7 +13,8 @@
       <button mat-raised-button (click)="openInput()">
         Escoga la imagen para subir
       </button>
-      <input id="fileInput" hidden type="file" (change)="onSelectFile($event)">
+      <!-- <input id="fileInput" hidden type="file" (change)="onSelectFile($event)"> -->
+      <input id="fileInput" hidden type='file' accept=".jpg, .png" (change)="onSelectFile($event)">
 
       <br>
       <br>
@@ -51,7 +52,7 @@
         <mat-error>Este campo es requerido.</mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="accent" (click)="onSubmit()">Actualizar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Actualizar</button>
       <button mat-raised-button color="" (click)="onCancel()">Cancelar</button>
     </div>
   </div>
