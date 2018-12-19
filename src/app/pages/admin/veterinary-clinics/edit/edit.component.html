@@ -19,18 +19,27 @@
       <br>
       <br>
 
-      <mat-form-field>
-        <input matInput placeholder="Nombre Clínica" required [(ngModel)]="clinic_nombre">
+      <mat-form-field hintLabel="Max 50 caracteres">
+        <input matInput #inputName placeholder="Nombre Clínica" maxlength="50" required [(ngModel)]="clinic_nombre">
+        <mat-hint align="end">{{inputName.value?.length || 0}}/50</mat-hint>
         <mat-error>Este campo es requerido.</mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Direccion Clínica" required [(ngModel)]="clinic_direccion">
+      <mat-form-field hintLabel="Max 100 caracteres">
+        <input matInput #inputDireccion  placeholder="Direccion Clínica" maxlength="1000" required [(ngModel)]="clinic_direccion">
+        <mat-hint align="end">{{inputDireccion.value?.length || 0}}/100</mat-hint>
         <mat-error>Este campo es requerido.</mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Especialidades" required [(ngModel)]="clinic_especialidades">
+      <mat-form-field hintLabel="Max 10 caracteres">
+        <input #inputTelefono type="number" matInput placeholder="Telefono" [errorStateMatcher]="matcher" [(ngModel)]="clinic_telefono" required>
+        <mat-error *ngIf="inputTelefono.value?.length >= 10">El telefono no puede exceder de 10 digitos.</mat-error>
+        <mat-error *ngIf="inputTelefono.value?.length <= 6">El telefono no puede ser menor a 6 digitos.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field hintLabel="Max 250 caracteres">
+        <input matInput #inputEspecialidades placeholder="Especialidades" maxlength="250" required [(ngModel)]="clinic_especialidades">
+        <mat-hint align="end">{{inputEspecialidades.value?.length || 0}}/250</mat-hint>
         <mat-error>Este campo es requerido.</mat-error>
       </mat-form-field>
 

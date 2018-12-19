@@ -5,7 +5,7 @@ import {FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgF
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
-import {ErrorStateMatcher} from '@angular/material';
+import { ErrorStateMatcher } from '@angular/material';
 
 @Component({
   selector: 'app-create-clinic',
@@ -37,7 +37,7 @@ export class CreateVeterinaryClinicComponent implements OnInit {
     this.clinicForm = this.fb.group({
       'Nombre': ['', [Validators.required]],
       'Direccion': ['', [Validators.required]],
-      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{1,8}')]],
+      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{6,8}')]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
       //'Dias': ['', [Validators.required]],

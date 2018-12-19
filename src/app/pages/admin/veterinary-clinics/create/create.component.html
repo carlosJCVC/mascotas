@@ -23,25 +23,25 @@
     </div>
     <input #imageClinic type="hidden" [value]="urlClinic|async">
     <mat-form-field hintLabel="Max 50 caracteres">
-      <input #inputName formControlName="Nombre" matInput placeholder="Nombre Clínica" maxlength="50" required>
+        <input #inputName formControlName="Nombre" matInput placeholder="Nombre Clínica" maxlength="50" required>
       <mat-hint align="end">{{inputName.value?.length || 0}}/50</mat-hint>
       <mat-error>Este campo es requerido.</mat-error>
     </mat-form-field>
 
     <mat-form-field hintLabel="Max 50 caracteres">
-      <input formControlName="Direccion" #inputDireccion matInput class="input" placeholder="Direccion Clínica" maxlength="50" required>
+      <input formControlName="Direccion" #inputDireccion matInput placeholder="Direccion Clínica" maxlength="50" required>
       <mat-hint align="end">{{inputDireccion.value?.length || 0}}/50</mat-hint>
       <mat-error>Este campo es requerido.</mat-error>
     </mat-form-field>
 
-    <mat-form-field hintLabel="Max 8 caracteres">
+    <mat-form-field hintLabel="Max 10 caracteres">
       <input #inputTelefono type="number" formControlName="Telefono" matInput placeholder="Telefono" [errorStateMatcher]="matcher" required>
-      <mat-error *ngIf="inputTelefono.value?.length >= 8">El telefono no puede exceder de 8 digitos.</mat-error>
-      <mat-error *ngIf="inputTelefono.value?.length <= 6">El telefono no puede ser menor a 7 digitos.</mat-error>
+      <mat-error *ngIf="inputTelefono.value?.length >= 10">El telefono no puede exceder de 10 digitos.</mat-error>
+      <mat-error *ngIf="inputTelefono.value?.length <= 6">El telefono no puede ser menor a 6 digitos.</mat-error>
     </mat-form-field>
 
     <mat-form-field hintLabel="Max 250 caracteres">
-      <textarea formControlName="Especialidades" #inputEspecialidades matInput class="input" placeholder="Especialidades" required></textarea>
+      <textarea formControlName="Especialidades" #inputEspecialidades matInput placeholder="Especialidades" maxlength="250" required></textarea>
       <mat-hint align="end">{{inputEspecialidades.value?.length || 0}}/250</mat-hint>
       <mat-error>Este campo es requerido.</mat-error>
     </mat-form-field>

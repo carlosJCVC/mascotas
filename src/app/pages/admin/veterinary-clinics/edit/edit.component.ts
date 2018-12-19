@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { VeterinaryClinicService } from '../../../../services/veterinary-clinic.service';
 import { VeterinaryClinic } from '../../veterinary-clinics/edit/edit.component';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material';
 
 @Component({
   selector: 'app-edit-clinic',
@@ -29,9 +30,10 @@ export class EditVeterinaryClinicComponent implements OnInit {
   public clinic_especialidades;
   public clinic_horario;
   public clinic_dias;
+  matcher = new MyCustomErrorStateMatcher;
   daysList: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 
-  ngOnInit() {
+  ngOnInit()  {
     this.activatedRoute.params.subscribe(params => {
       this.id = params.id;
       this.clinicService.getOne(this.id).subscribe(res => {
@@ -97,4 +99,11 @@ export interface VeterinaryClinic {
   especialidades: string;
   horario: string;
   dias: string;
+}
+
+export class MyCustomErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 }
