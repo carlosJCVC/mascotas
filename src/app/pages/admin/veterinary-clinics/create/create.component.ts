@@ -1,10 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import { VeterinaryClinicService } from '../../../../services/veterinary-clinic.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
+import {ErrorStateMatcher} from '@angular/material';
 
 @Component({
   selector: 'app-create-clinic',
@@ -22,6 +23,7 @@ export class CreateVeterinaryClinicComponent implements OnInit {
   uploadPercent: Observable<number>;
   public existImage: boolean;
   daysList: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+  matcher = new MyCustomErrorStateMatcher;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -35,6 +37,7 @@ export class CreateVeterinaryClinicComponent implements OnInit {
     this.clinicForm = this.fb.group({
       'Nombre': ['', [Validators.required]],
       'Direccion': ['', [Validators.required]],
+      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{1,8}')]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
       //'Dias': ['', [Validators.required]],
@@ -75,5 +78,12 @@ export class CreateVeterinaryClinicComponent implements OnInit {
     const task = this.storage.upload(filePath, file);
     this.uploadPercent = task.percentageChanges();
     task.snapshotChanges().pipe( finalize(() => this.urlClinic = ref.getDownloadURL())).subscribe();
+  }
+}
+
+export class MyCustomErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

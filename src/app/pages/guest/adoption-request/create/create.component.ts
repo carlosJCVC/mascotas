@@ -25,9 +25,8 @@ export class CreateComponent implements OnInit {
     this.adoptionRequestForm = this.fb.group({
       'Nombre': ['', [Validators.required]],
       'Correo': ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$')]],
-      'CedulaIdentidad': ['', [Validators.required, Validators.pattern('[1-9]{1,7}[a-zA-Z][a-zA-Z]')]],
+      'CedulaIdentidad': ['', [Validators.required, Validators.pattern('[0-9]{7,10}[a-zA-Z][a-zA-Z]')]],
       'Departamento': ['', []],
-      'Provincia': ['', []],
       'Direccion': ['', []],
       'Ocupacion': ['', []],
       'EstadoCivil': ['', []],
