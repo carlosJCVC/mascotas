@@ -10,7 +10,7 @@ import { PetService } from 'src/app/services/pet.service';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './adoption-request/create/create.component';
-
+import { MatCheckboxModule } from '@angular/material';
 
 const routes: Routes = [
     { path: '', component: PetListComponent },
@@ -29,6 +29,7 @@ const routes: Routes = [
         MatTabsModule,
         MatSidenavModule,
         MatSelectModule,
+        MatCheckboxModule,
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes)
