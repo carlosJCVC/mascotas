@@ -37,10 +37,9 @@ export class CreateVeterinaryClinicComponent implements OnInit {
     this.clinicForm = this.fb.group({
       'Nombre': ['', [Validators.required]],
       'Direccion': ['', [Validators.required]],
-      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{6,8}')]],
+      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{6,10}')]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
-      //'Dias': ['', [Validators.required]],
       'Logo': [''],
     });
   }
