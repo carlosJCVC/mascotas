@@ -37,7 +37,7 @@ export class CreateVeterinaryClinicComponent implements OnInit {
     this.clinicForm = this.fb.group({
       'Nombre': ['', [Validators.required]],
       'Direccion': ['', [Validators.required]],
-      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{6,8}')]],
+      'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{6,10}')]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
       //'Dias': ['', [Validators.required]],
@@ -50,7 +50,11 @@ export class CreateVeterinaryClinicComponent implements OnInit {
   }
 
   onSubmit() {
-    this.clinicForm.value.Dias = this.days.value.toString();
+    if (this.days.value) {
+      this.clinicForm.value.Dias = this.days.value.toString();
+    } else {
+      this.clinicForm.value.Dias = 'Lunes, Martes, Miercoles, Jueves, Sabado, Domingo';
+    }
     this.clinicForm.value.Logo = this.inputImageClinic.nativeElement.value;
 
     this.clinicServ.add(this.clinicForm.value).subscribe(res => {
