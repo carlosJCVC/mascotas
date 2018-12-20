@@ -72,8 +72,8 @@ export class CreateComponent implements OnInit {
 
     buildForm() {
         this.petForm = this.fb.group({
-            'nombre': ['', [ Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,30}') ]],
-            'raza': ['', [ Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,30}') ]],
+            'nombre': ['', [ Validators.required, Validators.maxLength(30) ]],
+            'raza': ['', [ Validators.required, Validators.maxLength(30)]],
             'especie': ['', [ Validators.required ]],
             'edad': ['', [ Validators.required ]],
             'sexo': ['', [ Validators.required ]],
@@ -110,8 +110,10 @@ export class CreateComponent implements OnInit {
     }
     onSelectFile(event) {
         if (event.target.files && event.target.files[0]) {
-          var reader = new FileReader();
+          let reader;
+          reader = new FileReader();
           reader.readAsDataURL(event.target.files[0]);
+          // tslint:disable-next-line:no-shadowed-variable
           reader.onload = (event) => {
             this.url = event.target.result;
           };

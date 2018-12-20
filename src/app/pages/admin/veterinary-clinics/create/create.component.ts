@@ -67,8 +67,10 @@ export class CreateVeterinaryClinicComponent implements OnInit {
 
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
+      let reader;
+      reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
+      // tslint:disable-next-line:no-shadowed-variable
       reader.onload = (event) => {
         this.url = event.target.result;
         this.existImage = true;
