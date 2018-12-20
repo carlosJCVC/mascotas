@@ -65,6 +65,7 @@ export class AceptedRequestsComponent implements OnInit {
     awnswerAdoptionRequest(id: number, estado: string) {
         this.adoptionServ.edit(id + '/estado', {Estado: estado, IdSolicitud: id}).subscribe(() => {
             this.router.navigate(['auth/adoption_requests/acepted']);
+            this.ngOnInit();
         });
     }
 }
