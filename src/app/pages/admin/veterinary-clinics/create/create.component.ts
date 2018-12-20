@@ -40,7 +40,6 @@ export class CreateVeterinaryClinicComponent implements OnInit {
       'Telefono': ['', [Validators.required, Validators.pattern('[0-9]{6,10}')]],
       'Especialidades': ['', [Validators.required]],
       'Horario': ['', [Validators.required]],
-      //'Dias': ['', [Validators.required]],
       'Logo': [''],
     });
   }

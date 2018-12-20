@@ -72,8 +72,8 @@ export class CreateComponent implements OnInit {
 
     buildForm() {
         this.petForm = this.fb.group({
-            'nombre': ['', [ Validators.required,Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,30}') ]],
-            'raza': ['', [ Validators.required,Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,30}') ]],
+            'nombre': ['', [ Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,30}') ]],
+            'raza': ['', [ Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{3,30}') ]],
             'especie': ['', [ Validators.required ]],
             'edad': ['', [ Validators.required ]],
             'sexo': ['', [ Validators.required ]],
